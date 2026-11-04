@@ -13,6 +13,19 @@ description: Vincula una tablet con LibreShard y empieza a usar shards.
 Cada código sirve una vez y durante 10 minutos. Los dispositivos vinculados aparecen en la pestaña
 **Dispositivos**, donde puedes renombrarlos o desvincularlos.
 
+## Una pantalla táctil en la propia PC
+
+Si tu PC tiene pantalla táctil, no necesitas tablet: la tarjeta **Esta PC** de la pestaña
+**Conectar** abre los shards en una ventana de la PC. Tocarla nunca le quita el foco a la app que
+está delante, así que las teclas siguen llegando a esa app. Coloca la ventana en la pantalla táctil;
+recuerda dónde la dejas.
+
+- Mientras la propia ventana de LibreShard está delante, el panel no pulsa nada y te lo avisa:
+  cambia primero a la app que quieres controlar.
+- En Windows y macOS, **Ajustes → Panel de esta PC siempre visible** lo mantiene encima de las demás ventanas.
+- En Linux el panel tiene su propia barra: arrástrala para mover la ventana, arrastra la esquina
+  para cambiar su tamaño y usa × para cerrarla. Allí siempre queda encima.
+
 ## Crea tu propio shard
 
 Un shard es una carpeta con un `manifest.json` y un `index.html`. Parte de la

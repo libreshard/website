@@ -1,0 +1,123 @@
+---
+title: Create a shard
+description: Build your own LibreShard panel with HTML, CSS and JavaScript, try it live on the tablet and share it.
+---
+
+{/* Adapted from docs/shards.md in the LibreShard repository (0.2.0). Keep both in step. */}
+
+import { Steps, FileTree } from '@astrojs/starlight/components';
+
+A **shard** is a panel for the tablet: a folder with HTML, CSS and JavaScript plus a
+`manifest.json` that lists the keys it may press. If you can build a web page, you can build a
+shard. Nothing is compiled and LibreShard's code doesn't change.
+
+The quickest start is the
+[template](https://github.com/libreshard/libreshard/tree/main/docs/shard-template): copy the folder
+and change it. This page walks through the basics; every field and function is in the
+[shard reference](/docs/shard-reference/).
+
+## The smallest shard
+
+<Steps>
+
+1. Make a folder with two files:
+
+   <FileTree>
+   - my-shard/
+     - manifest.json
+     - index.html
+   </FileTree>
+
+2. In `manifest.json`, give the shard an `id`, a `name` and the keys it may press:
+
+   ```json title="manifest.json"
+   {
+     "id": "my-shard",
+     "name": "My shard",
+     "author": "Your name",
+     "version": "1.0.0",
+     "icon": "⭐",
+     "description": "One line for the tablet's menu",
+     "permissions": { "keys": ["ctrl+c", "ctrl+v", "shift"] }
+   }
+   ```
+
+3. In `index.html`, add a button for each key:
+
+   ```html title="index.html"
+   <!doctype html>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <body style="padding-top: 64px">
+     <button data-key="ctrl+c">Copy</button>
+     <button data-key="ctrl+v">Paste</button>
+     <button data-hold="shift">Shift</button>
+   </body>
+   ```
+
+</Steps>
+
+That's a working shard. LibreShard injects its script into every shard, so `data-key` (one press
+per tap) and `data-hold` (held while the finger is on the button) work without any JavaScript of
+your own.
+
+## Try it while you edit
+
+In the LibreShard window on the PC, open **Shards → Load in development…** and pick your folder.
+LibreShard links the folder instead of copying it:
+
+- Every time you save a file, tablets showing the shard reload it.
+- Changing `manifest.json` reloads its declaration. New keys need your approval again.
+- The shard shows an "In development" badge on the PC.
+
+To debug, open `http://localhost:7878/` in the PC's browser, type the code shown in the **Connect**
+tab and use the developer tools on the shard's iframe.
+
+## Make it fit the screen
+
+- The shard takes **the whole screen**. Use relative units (`%`, `vw`, `vh`, grid, flex) and check
+  it in portrait and landscape, on a phone and a tablet.
+- **Keep the top-left corner free** (about 64 px): the viewer's floating button sits on top of it.
+- Buttons should be at least ~48 px for a finger. Give them `touch-action: none`, or a second finger
+  landing can start a pinch zoom that cancels both touches.
+- Everything must live in the folder: shards can't load anything from the internet, not even fonts
+  from a CDN. See [what a shard can't do](/docs/shard-reference/#what-a-shard-cant-do).
+
+Want LibreShard's look? The template's `libreshard.css` gives you the navy, cyan and gold styles
+(`.ls-app`, `.ls-head`, `.ls-btn`, icons as `<span class="ls-i i-copy"></span>`), and
+`libreshard.js` a few helpers. Both are optional, and you can copy them freely (MIT-0).
+
+## Go further
+
+The [shard reference](/docs/shard-reference/) covers:
+
+- the [Shard API](/docs/shard-reference/#from-javascript) to press keys from JavaScript and keep
+  data on the tablet;
+- the [key names](/docs/shard-reference/#keys) and their quirks on each system;
+- [limiting a shard to certain apps](/docs/shard-reference/#limiting-a-shard-to-certain-apps);
+- [settings the user changes on the PC](/docs/shard-reference/#settings-the-user-changes-on-the-pc);
+- [several languages](/docs/shard-reference/#languages).
+
+The bundled shards are good examples: their source is in
+[`shards/`](https://github.com/libreshard/libreshard/tree/main/shards) in the LibreShard repository.
+
+## Share your shard
+
+- **Package it** as a `.zip` of the folder, or rename the zip to `.libreshard` so a double click
+  opens it in LibreShard. `manifest.json` may be at the root or inside a single top-level folder.
+  Limits: 50 MB uncompressed and 2,000 files.
+- **Installing:** users drag the file onto the LibreShard window (or use **Install from .zip…**).
+  LibreShard shows a review with every key, the apps and the size before installing. Updates show
+  what changed.
+- **Set `minAppVersion`** to the LibreShard version you tested with.
+- **Choose a license.** Your shard is your own work: LibreShard doesn't impose any license on it.
+  Add a `LICENSE` file so others know what they may do with it. The template and LibreShard's base
+  files are MIT-0, so copying them adds no obligations.
+- **Respect other people's material.** Only include images, logos, icons, fonts and sounds you have
+  the right to share. Game fan kits and icon packs often allow personal use but not redistribution:
+  the [SC MFD](https://github.com/libreshard/libreshard-sc-mfd) game shard draws its own icons and
+  uses no game artwork for that reason.
+- **Name it clearly.** "Photo tools for LibreShard" is fine; see the
+  [trademark policy](https://github.com/libreshard/libreshard/blob/main/TRADEMARKS.md).
+- Then tell people about it: open a
+  [discussion](https://github.com/libreshard/libreshard/discussions) in the LibreShard repository.

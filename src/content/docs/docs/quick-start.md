@@ -27,6 +27,5 @@ the keys still go to that app. Put the window on the touch screen; it remembers 
 
 ## Make your own shard
 
-A shard is a folder with a `manifest.json` and an `index.html`. Start from the
-[template](https://github.com/libreshard/libreshard/tree/main/docs/shard-template) and read the
-[guide for shard authors](https://github.com/libreshard/libreshard/blob/main/docs/shards.md).
+A shard is a folder with a `manifest.json` and an `index.html`: if you can build a web page, you
+can build one. [Create a shard](/docs/create-a-shard/) walks you through it.

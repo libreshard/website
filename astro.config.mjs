@@ -41,6 +41,7 @@ export default defineConfig({
 					items: [
 						{ slug: 'download' },
 						{ slug: 'docs/quick-start' },
+						{ slug: 'docs/faq' },
 					],
 				},
 				{

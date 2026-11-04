@@ -1,0 +1,246 @@
+---
+// Download cards for the latest release, one per system. A small script marks the card that
+// matches the visitor's system.
+import { Icon } from '@astrojs/starlight/components';
+import { latestRelease, formatSize, RELEASES_URL } from '../lib/release';
+
+interface Props {
+	lang: 'en' | 'es';
+}
+const { lang } = Astro.props;
+
+const text = {
+	en: {
+		version: 'Version',
+		prerelease: 'pre-release',
+		released: 'released on',
+		yours: 'Your system',
+		windows: 'Windows 10 and 11',
+		windowsNote: 'Installer for your user, no administrator rights needed.',
+		linux: 'Linux (X11)',
+		linuxNote: 'Debian and Ubuntu package, or an AppImage for other distributions.',
+		mac: 'macOS',
+		macNote: 'Experimental: it builds, but isn’t tested. Apple silicon.',
+		exe: 'Installer (.exe)',
+		deb: 'Debian / Ubuntu (.deb)',
+		appImage: 'AppImage',
+		dmg: 'Disk image (.dmg)',
+		sums: 'Checksums (SHA256SUMS.txt)',
+		notes: 'Release notes',
+		fallback: 'The latest version is on GitHub:',
+		fallbackLink: 'see all releases',
+	},
+	es: {
+		version: 'Versión',
+		prerelease: 'versión preliminar',
+		released: 'publicada el',
+		yours: 'Tu sistema',
+		windows: 'Windows 10 y 11',
+		windowsNote: 'Instalador para tu usuario, sin permisos de administrador.',
+		linux: 'Linux (X11)',
+		linuxNote: 'Paquete para Debian y Ubuntu, o AppImage para otras distribuciones.',
+		mac: 'macOS',
+		macNote: 'Experimental: se compila, pero no está probado. Apple silicon.',
+		exe: 'Instalador (.exe)',
+		deb: 'Debian / Ubuntu (.deb)',
+		appImage: 'AppImage',
+		dmg: 'Imagen de disco (.dmg)',
+		sums: 'Sumas de verificación (SHA256SUMS.txt)',
+		notes: 'Notas de la versión',
+		fallback: 'La última versión está en GitHub:',
+		fallbackLink: 'ver todas las versiones',
+	},
+}[lang];
+
+const release = await latestRelease();
+const date = release
+	? new Intl.DateTimeFormat(lang, { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(release.date))
+	: '';
+---
+
+{
+	release ? (
+		<div class="ls-downloads">
+			<p class="ls-version">
+				{text.version} <strong>{release.version}</strong>
+				{release.prerelease && <span class="ls-badge">{text.prerelease}</span>} · {text.released} {date} ·{' '}
+				<a href={release.url}>{text.notes}</a>
+			</p>
+			<div class="ls-cards">
+				<section class="ls-card" data-os="windows">
+					<span class="ls-yours">{text.yours}</span>
+					<h3><Icon name="desktop" /> {text.windows}</h3>
+					<p>{text.windowsNote}</p>
+					{release.windows && (
+						<a class="ls-dl" href={release.windows.url}>
+							<Icon name="download" />
+							<span class="ls-dl-text">
+								<strong>{text.exe}</strong>
+								<small>{release.windows.name} · {formatSize(release.windows.size)}</small>
+							</span>
+						</a>
+					)}
+				</section>
+				<section class="ls-card" data-os="linux">
+					<span class="ls-yours">{text.yours}</span>
+					<h3><Icon name="linux" /> {text.linux}</h3>
+					<p>{text.linuxNote}</p>
+					{release.deb && (
+						<a class="ls-dl" href={release.deb.url}>
+							<Icon name="download" />
+							<span class="ls-dl-text">
+								<strong>{text.deb}</strong>
+								<small>{release.deb.name} · {formatSize(release.deb.size)}</small>
+							</span>
+						</a>
+					)}
+					{release.appImage && (
+						<a class="ls-dl" href={release.appImage.url}>
+							<Icon name="download" />
+							<span class="ls-dl-text">
+								<strong>{text.appImage}</strong>
+								<small>{release.appImage.name} · {formatSize(release.appImage.size)}</small>
+							</span>
+						</a>
+					)}
+				</section>
+				<section class="ls-card" data-os="mac">
+					<span class="ls-yours">{text.yours}</span>
+					<h3><Icon name="apple" /> {text.mac}</h3>
+					<p>{text.macNote}</p>
+					{release.mac && (
+						<a class="ls-dl ls-dl--quiet" href={release.mac.url}>
+							<Icon name="download" />
+							<span class="ls-dl-text">
+								<strong>{text.dmg}</strong>
+								<small>{release.mac.name} · {formatSize(release.mac.size)}</small>
+							</span>
+						</a>
+					)}
+				</section>
+			</div>
+			{release.sums && (
+				<p class="ls-sums">
+					<a href={release.sums.url}>{text.sums}</a>
+				</p>
+			)}
+		</div>
+	) : (
+		<p>
+			{text.fallback} <a href={RELEASES_URL}>{text.fallbackLink}</a>
+		</p>
+	)
+}
+
+<script>
+	// Marks the card for the visitor's system; nothing changes if it can't be told
+	const nav = navigator as Navigator & { userAgentData?: { platform?: string } };
+	const platform = (nav.userAgentData?.platform || navigator.platform || navigator.userAgent).toLowerCase();
+	const os = platform.includes('win') ? 'windows' : platform.includes('mac') ? 'mac' : platform.includes('linux') && !/android/.test(navigator.userAgent.toLowerCase()) ? 'linux' : '';
+	if (os) document.querySelector(`.ls-card[data-os="${os}"]`)?.classList.add('ls-card--yours');
+</script>
+
+<style>
+	.ls-version {
+		color: var(--sl-color-gray-2);
+	}
+	.ls-badge {
+		margin-inline-start: 0.4rem;
+		padding: 0.05rem 0.5rem;
+		border-radius: 999px;
+		font-size: var(--sl-text-xs);
+		background: var(--sl-color-accent-low);
+		color: var(--sl-color-accent-high);
+	}
+	.ls-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+	.ls-card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		padding: 1.25rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.75rem;
+		background: var(--sl-color-gray-6);
+	}
+	.ls-card h3 {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0;
+		font-size: var(--sl-text-lg);
+	}
+	.ls-card p {
+		margin: 0;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+	}
+	.ls-card--yours {
+		border-color: var(--ls-gold);
+		box-shadow: 0 0 0 1px var(--ls-gold);
+	}
+	.ls-yours {
+		display: none;
+		position: absolute;
+		top: -0.7rem;
+		inset-inline-end: 1rem;
+		padding: 0.05rem 0.6rem;
+		border-radius: 999px;
+		font-size: var(--sl-text-xs);
+		font-weight: 600;
+		background: var(--ls-gold);
+		color: var(--ls-navy);
+	}
+	.ls-card--yours .ls-yours {
+		display: block;
+	}
+	.ls-dl {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: auto;
+		padding: 0.6rem 0.9rem;
+		border-radius: 0.5rem;
+		background: var(--ls-gold);
+		color: var(--ls-navy);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.ls-dl + .ls-dl {
+		margin-top: 0;
+	}
+	.ls-dl:hover {
+		background: var(--ls-gold-dark);
+		color: var(--ls-navy);
+	}
+	.ls-dl--quiet {
+		background: transparent;
+		color: var(--sl-color-white);
+		border: 1px solid var(--sl-color-gray-4);
+	}
+	.ls-dl--quiet:hover {
+		background: var(--sl-color-gray-5);
+		color: var(--sl-color-white);
+	}
+	.ls-dl-text {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		line-height: 1.3;
+	}
+	.ls-dl-text small {
+		font-weight: 400;
+		font-size: var(--sl-text-xs);
+		opacity: 0.85;
+		overflow-wrap: anywhere;
+	}
+	.ls-sums {
+		margin-top: 1rem;
+		font-size: var(--sl-text-sm);
+	}
+</style>

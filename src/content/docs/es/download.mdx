@@ -1,0 +1,49 @@
+---
+title: Descargar LibreShard
+description: Descarga LibreShard para Windows, Linux o macOS.
+template: splash
+editUrl: false
+lastUpdated: false
+---
+
+import Downloads from '../../../components/Downloads.astro';
+
+<Downloads lang="es" />
+
+## Después de instalar
+
+### Windows
+
+- **Firewall:** el instalador ofrece crear una regla del Firewall de Windows para que las tablets se
+  conecten solo desde tu red **privada**. Aceptarla muestra un único aviso de administrador. Si dices
+  que no, Windows te preguntará al abrir LibreShard por primera vez: permite solo **redes privadas**.
+- **SmartScreen:** las versiones todavía no están firmadas, así que Windows puede decir "Windows
+  protegió su PC". Pulsa **Más información → Ejecutar de todas formas**. Puedes comprobar la
+  descarga con las sumas de verificación de arriba.
+- **Juegos que se ejecutan como administrador:** ignoran las teclas de los programas normales. Para
+  esos, ejecuta también LibreShard como administrador (lee las
+  [notas de seguridad](https://github.com/libreshard/libreshard/blob/main/SECURITY.md#known-limitations)).
+
+### Linux
+
+- **Debian/Ubuntu:** `sudo apt install ./libreshard_<versión>_amd64.deb`. En Ubuntu 24.04 y
+  posteriores el paquete instala además un perfil de AppArmor, que las apps de Electron necesitan ahí.
+- **Otras distribuciones:** da permiso de ejecución al AppImage y ábrelo. Los AppImage necesitan FUSE
+  (`libfuse2` en la mayoría de distribuciones).
+- **Wayland no es compatible:** simular teclas y detectar la app activa necesitan una sesión X11 (Xorg).
+- **Firewall:** si tienes `ufw` activo, permite el puerto solo desde tu red local. Por ejemplo, si tu
+  red es `192.168.1.x`:
+
+  ```bash
+  sudo ufw allow from 192.168.1.0/24 to any port 7878 proto tcp comment 'LibreShard'
+  ```
+
+### macOS (experimental)
+
+Abre el `.dmg` y arrastra LibreShard a Aplicaciones. No está firmado: la primera vez, haz clic
+derecho y elige **Abrir**. Necesita el permiso de **Accesibilidad** para pulsar teclas, y puede
+necesitar **Grabación de pantalla** para detectar la app activa.
+
+## Y después
+
+Sigue los [primeros pasos](/es/docs/quick-start/) para vincular tu tablet.

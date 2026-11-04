@@ -1,0 +1,39 @@
+---
+// Header links before the social icons. Replaces Starlight's SocialIcons and renders it at the end.
+import Default from '@astrojs/starlight/components/SocialIcons.astro';
+
+const labels = {
+	en: { download: 'Download', docs: 'Docs' },
+	es: { download: 'Descargar', docs: 'Documentación' },
+};
+const locale = Astro.locals.starlightRoute.locale; // undefined for the root (English) locale
+const t = labels[locale === 'es' ? 'es' : 'en'];
+const prefix = locale ? `/${locale}` : '';
+---
+
+<nav class="ls-header-links sl-flex" aria-label="LibreShard">
+	<a href={`${prefix}/download/`}>{t.download}</a>
+	<a href={`${prefix}/docs/quick-start/`}>{t.docs}</a>
+</nav>
+<Default />
+
+<style>
+	.ls-header-links {
+		gap: 1.25rem;
+		margin-inline-end: 0.75rem;
+	}
+	.ls-header-links a {
+		color: var(--sl-color-white);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: var(--sl-text-sm);
+	}
+	.ls-header-links a:hover {
+		color: var(--sl-color-accent);
+	}
+	@media (max-width: 50rem) {
+		.ls-header-links {
+			display: none;
+		}
+	}
+</style>

@@ -1,0 +1,102 @@
+---
+title: LibreShard
+description: The open-source touch control deck. Turn any tablet, phone or spare screen into a control panel for your PC, with no hardware to buy and no cloud.
+template: splash
+editUrl: false
+lastUpdated: false
+hero:
+  title: Your hardware. Your rules.
+  tagline: Turn any tablet, phone or spare screen into a touch control deck for your PC. Open source, nothing to buy, nothing in the cloud.
+  image:
+    file: ../../assets/logo-mark.svg
+    alt: ''
+  actions:
+    - text: Download
+      link: /download/
+      icon: download
+      variant: primary
+    - text: Quick start
+      link: /docs/quick-start/
+      icon: right-arrow
+      variant: secondary
+    - text: Source code
+      link: https://github.com/libreshard/libreshard
+      icon: github
+      variant: minimal
+---
+
+import { Card, CardGrid, Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import shard from '../../assets/tablet-shard.png';
+import desktop from '../../assets/desktop.png';
+import menu from '../../assets/tablet-menu.png';
+
+## How it works
+
+<Steps>
+
+1. **Install LibreShard on your PC.** Windows and Linux are supported; macOS is experimental.
+
+2. **Scan the QR code with your tablet.** The panel opens in its browser: there's no app to install on the tablet.
+
+3. **Tap.** The PC presses the keys for you, in the app you're using.
+
+</Steps>
+
+## Why LibreShard
+
+<CardGrid>
+	<Card title="No vendor lock-in" icon="mobile-android">
+		Reuse an old tablet or the phone you already have. Any modern browser works: Android, iPad,
+		phones or another computer.
+	</Card>
+	<Card title="Shards" icon="puzzle">
+		Each panel is a folder with a web page and a manifest. Install one by dropping a zip on the
+		window, or build your own and watch the tablet reload as you save.
+	</Card>
+	<Card title="Safe by design" icon="padlock">
+		The PC presses only the keys a shard declared **and** you approved, after a review that flags
+		dangerous shortcuts. Shards can't reach the internet, your files or each other.
+	</Card>
+	<Card title="Only where it belongs" icon="approve-check-circle">
+		Limit a shard to the apps it's meant for, so a tap never fires a shortcut into the wrong
+		program.
+	</Card>
+	<Card title="100% local and private" icon="laptop">
+		No account, no telemetry. Everything stays on your network.
+	</Card>
+	<Card title="English and Spanish" icon="translate">
+		The app follows your system language, or the one you pick in Settings.
+	</Card>
+</CardGrid>
+
+## A look at it
+
+<div class="ls-shots">
+	<figure class="ls-wide">
+		<Image src={shard} alt="The OBS Studio shard open on a tablet" class="ls-shot" />
+		<figcaption>A shard on the tablet: OBS Studio, with its shortcuts on each button.</figcaption>
+	</figure>
+	<figure>
+		<Image src={desktop} alt="The LibreShard window on the PC, with a QR code for each network" class="ls-shot" />
+		<figcaption>The PC window: pair a tablet, manage shards and devices.</figcaption>
+	</figure>
+	<figure>
+		<Image src={menu} alt="The shard menu on the tablet" class="ls-shot" />
+		<figcaption>The tablet menu: every shard, one tap away.</figcaption>
+	</figure>
+</div>
+
+## Ready to use
+
+LibreShard comes with eight shards: **Media**, **Numpad**, **Image editing** (Photoshop, Affinity
+Photo, Krita, GIMP), **Video calls** (Zoom, Teams, Meet), **Desktop** (windows and virtual
+desktops), **Discord**, **OBS Studio** and **VS Code**. More are coming from the community, like
+the [SC MFD](https://github.com/libreshard/libreshard-sc-mfd) panels for Star Citizen.
+
+## Open source
+
+LibreShard is free software under the [Apache License 2.0](https://github.com/libreshard/libreshard/blob/main/LICENSE).
+Bug reports, shards, translations and code are welcome: see
+[how to contribute](https://github.com/libreshard/libreshard/blob/main/CONTRIBUTING.md) and the
+[roadmap](https://github.com/libreshard/libreshard#roadmap).

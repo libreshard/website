@@ -1,0 +1,85 @@
+/* LibreShard's palette (the same as the app: desktop/style.css and the logo) on Starlight's theme
+   variables. Dark is the brand's own look; light keeps the same hues with enough contrast. */
+
+:root {
+	--ls-navy: #0d1b2a;
+	--ls-cell: #13263a;
+	--ls-line: #1f3a55;
+	--ls-cyan: #22d3ee;
+	--ls-gold: #fbbf24;
+	--ls-gold-dark: #f59e0b;
+
+	--sl-color-accent-low: #083344;
+	--sl-color-accent: #22d3ee;
+	--sl-color-accent-high: #a5f3fc;
+	--sl-color-white: #e6f1fa;
+	--sl-color-gray-1: #cfe3f3;
+	--sl-color-gray-2: #9cc3e0;
+	--sl-color-gray-3: #7ea3c2;
+	--sl-color-gray-4: #4b6f8f;
+	--sl-color-gray-5: #1f3a55;
+	--sl-color-gray-6: #13263a;
+	--sl-color-black: #0d1b2a;
+}
+
+:root[data-theme='light'] {
+	--sl-color-accent-low: #cffafe;
+	--sl-color-accent: #0e7490;
+	--sl-color-accent-high: #083344;
+	--sl-color-white: #0d1b2a;
+	--sl-color-gray-1: #13263a;
+	--sl-color-gray-2: #1f3a55;
+	--sl-color-gray-3: #3f6283;
+	--sl-color-gray-4: #7ea3c2;
+	--sl-color-gray-5: #cfe3f3;
+	--sl-color-gray-6: #e6f1fa;
+	--sl-color-gray-7: #f3f8fc;
+	--sl-color-black: #ffffff;
+}
+
+/* The main call to action (Download) in the brand's gold, as on the logo's button */
+.sl-link-button.primary {
+	background-color: var(--ls-gold);
+	border-color: var(--ls-gold);
+	color: var(--ls-navy);
+}
+.sl-link-button.primary:hover {
+	background-color: var(--ls-gold-dark);
+	border-color: var(--ls-gold-dark);
+	color: var(--ls-navy);
+}
+
+/* Screenshots: rounded, with the app's line color as a frame */
+.ls-shot {
+	border-radius: 0.75rem;
+	border: 1px solid var(--sl-color-gray-5);
+}
+.ls-shots {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+	align-items: start;
+}
+@media (min-width: 50rem) {
+	.ls-shots {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+.ls-shots figure {
+	margin: 0;
+}
+.ls-shots figcaption {
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-3);
+	margin-top: 0.4rem;
+}
+.ls-shots .ls-wide {
+	grid-column: 1 / -1;
+}
+
+/* Starlight cycles card icons through orange, purple, green, red and blue: keep them on brand */
+.card-grid > .card,
+.card {
+	--sl-card-border: var(--sl-color-accent);
+	--sl-card-bg: var(--sl-color-accent-low);
+}

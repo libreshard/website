@@ -1,0 +1,47 @@
+---
+title: Download LibreShard
+description: Download LibreShard for Windows, Linux or macOS.
+template: splash
+editUrl: false
+lastUpdated: false
+---
+
+import Downloads from '../../components/Downloads.astro';
+
+<Downloads lang="en" />
+
+## After installing
+
+### Windows
+
+- **Firewall:** the installer offers a Windows Firewall rule so tablets can connect from your
+  **private** network only. Accepting it shows one administrator prompt. If you decline, Windows
+  asks the first time you open LibreShard: allow **private networks** only.
+- **SmartScreen:** releases aren't code-signed yet, so Windows may say "Windows protected your PC".
+  Click **More info → Run anyway**. You can check the download against the checksums above.
+- **Games running as administrator** ignore keys from normal programs. For those, run LibreShard as
+  administrator too (read the [security notes](https://github.com/libreshard/libreshard/blob/main/SECURITY.md#known-limitations)).
+
+### Linux
+
+- **Debian/Ubuntu:** `sudo apt install ./libreshard_<version>_amd64.deb`. On Ubuntu 24.04 and newer
+  the package also installs an AppArmor profile, which Electron apps need there.
+- **Other distributions:** make the AppImage executable and run it. AppImages need FUSE (`libfuse2`
+  on most distributions).
+- **Wayland isn't supported:** key simulation and app detection need an X11 (Xorg) session.
+- **Firewall:** if `ufw` is enabled, allow the port from your local network only. For example, if
+  your network is `192.168.1.x`:
+
+  ```bash
+  sudo ufw allow from 192.168.1.0/24 to any port 7878 proto tcp comment 'LibreShard'
+  ```
+
+### macOS (experimental)
+
+Open the `.dmg` and drag LibreShard to Applications. It isn't signed: right-click it and choose
+**Open** the first time. It needs the **Accessibility** permission to press keys, and may need
+**Screen Recording** to detect the app in front.
+
+## Then
+
+Follow the [quick start](/docs/quick-start/) to pair your tablet.

@@ -1,0 +1,102 @@
+---
+title: LibreShard
+description: El panel de control táctil de código abierto. Convierte cualquier tablet, móvil o pantalla libre en un panel de control para tu PC, sin comprar hardware y sin nube.
+template: splash
+editUrl: false
+lastUpdated: false
+hero:
+  title: Tu hardware. Tus reglas.
+  tagline: Convierte cualquier tablet, móvil o pantalla libre en un panel táctil para tu PC. Código abierto, nada que comprar, nada en la nube.
+  image:
+    file: ../../../assets/logo-mark.svg
+    alt: ''
+  actions:
+    - text: Descargar
+      link: /es/download/
+      icon: download
+      variant: primary
+    - text: Primeros pasos
+      link: /es/docs/quick-start/
+      icon: right-arrow
+      variant: secondary
+    - text: Código fuente
+      link: https://github.com/libreshard/libreshard
+      icon: github
+      variant: minimal
+---
+
+import { Card, CardGrid, Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import shard from '../../../assets/tablet-shard.png';
+import desktop from '../../../assets/desktop.png';
+import menu from '../../../assets/tablet-menu.png';
+
+## Cómo funciona
+
+<Steps>
+
+1. **Instala LibreShard en tu PC.** Windows y Linux son compatibles; macOS es experimental.
+
+2. **Escanea el código QR con tu tablet.** El panel se abre en su navegador: no hay que instalar ninguna app en la tablet.
+
+3. **Toca.** La PC pulsa las teclas por ti, en la app que estés usando.
+
+</Steps>
+
+## Por qué LibreShard
+
+<CardGrid>
+	<Card title="Sin ataduras" icon="mobile-android">
+		Reutiliza una tablet vieja o el móvil que ya tienes. Sirve cualquier navegador moderno: Android,
+		iPad, móviles u otro ordenador.
+	</Card>
+	<Card title="Shards" icon="puzzle">
+		Cada panel es una carpeta con una página web y un manifiesto. Instala uno arrastrando un zip a
+		la ventana, o crea el tuyo y mira cómo la tablet se recarga al guardar.
+	</Card>
+	<Card title="Seguro por diseño" icon="padlock">
+		La PC solo pulsa las teclas que un shard declaró **y** que tú aprobaste, tras una revisión que
+		marca los atajos peligrosos. Los shards no pueden acceder a internet, a tus archivos ni entre sí.
+	</Card>
+	<Card title="Solo donde corresponde" icon="approve-check-circle">
+		Limita un shard a las apps para las que está pensado, para que un toque nunca lance un atajo en
+		el programa equivocado.
+	</Card>
+	<Card title="100 % local y privado" icon="laptop">
+		Sin cuentas ni telemetría. Todo se queda en tu red.
+	</Card>
+	<Card title="Español e inglés" icon="translate">
+		La app sigue el idioma de tu sistema, o el que elijas en Ajustes.
+	</Card>
+</CardGrid>
+
+## Así se ve
+
+<div class="ls-shots">
+	<figure class="ls-wide">
+		<Image src={shard} alt="El shard de OBS Studio abierto en una tablet" class="ls-shot" />
+		<figcaption>Un shard en la tablet: OBS Studio, con su atajo en cada botón.</figcaption>
+	</figure>
+	<figure>
+		<Image src={desktop} alt="La ventana de LibreShard en la PC, con un código QR por cada red" class="ls-shot" />
+		<figcaption>La ventana de la PC: vincula tablets y gestiona shards y dispositivos.</figcaption>
+	</figure>
+	<figure>
+		<Image src={menu} alt="El menú de shards en la tablet" class="ls-shot" />
+		<figcaption>El menú de la tablet: todos los shards a un toque.</figcaption>
+	</figure>
+</div>
+
+## Listo para usar
+
+LibreShard trae ocho shards: **Multimedia**, **Teclado numérico**, **Edición de imagen**
+(Photoshop, Affinity Photo, Krita, GIMP), **Videollamadas** (Zoom, Teams, Meet), **Escritorio**
+(ventanas y escritorios virtuales), **Discord**, **OBS Studio** y **VS Code**. La comunidad aporta
+más, como los paneles [SC MFD](https://github.com/libreshard/libreshard-sc-mfd) para Star Citizen.
+
+## Código abierto
+
+LibreShard es software libre con la [licencia Apache 2.0](https://github.com/libreshard/libreshard/blob/main/LICENSE).
+Se agradecen reportes de errores, shards, traducciones y código: lee
+[cómo contribuir](https://github.com/libreshard/libreshard/blob/main/CONTRIBUTING.md) y la
+[hoja de ruta](https://github.com/libreshard/libreshard/blob/main/README.es.md#hoja-de-ruta).

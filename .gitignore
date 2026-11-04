@@ -1,0 +1,21 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+
+# environment variables (tokens never go in the repository)
+.env
+.env.*
+
+# the maintainer's work plans stay local
+docs/plans/
+
+# OS files
+.DS_Store
+Thumbs.db

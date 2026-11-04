@@ -1,0 +1,5 @@
+# Every text file is checked out with LF on every system, as in the app repository
+* text=auto eol=lf
+
+*.png binary
+*.webp binary

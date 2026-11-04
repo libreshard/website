@@ -51,6 +51,14 @@ export default defineConfig({
 						{ slug: 'docs/shard-reference' },
 					],
 				},
+				{
+					label: 'Project',
+					translations: { es: 'Proyecto' },
+					items: [
+						{ slug: 'security' },
+						{ slug: 'community' },
+					],
+				},
 			],
 		}),
 	],

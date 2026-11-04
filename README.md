@@ -29,6 +29,7 @@ GitHub's limit for anonymous requests; never commit a token.
 | `src/styles/brand.css` | LibreShard's colors on Starlight's theme. |
 | `src/assets/` | Logo and screenshots (optimized at build time). |
 | `public/og.png` | The image link previews show. Regenerate it with `node scripts/og-image.mjs` when the logo or the screenshot changes. |
+| `public/.well-known/security.txt` | Where to report vulnerabilities ([RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)). Renew its `Expires` date before it passes (it's set a year ahead). |
 | `public/_headers` | Security headers (CSP, HSTS…) that Cloudflare Pages sends with every page. |
 
 ## Contributing

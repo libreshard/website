@@ -1,0 +1,65 @@
+---
+// Starlight's footer (edit link, last updated, pagination) followed by the site's legal notes:
+// licenses, the trademark policy and the non-affiliation notice. Shown on every page.
+import Default from '@astrojs/starlight/components/Footer.astro';
+
+const APP = 'https://github.com/libreshard/libreshard/blob/main';
+const SITE = 'https://github.com/libreshard/website/blob/main';
+
+const text = {
+	en: {
+		label: 'Legal',
+		app: 'LibreShard is free software under the',
+		shards: 'the shard template and the shared shard files are under',
+		site: 'The text of this site is under',
+		siteCode: 'and its code under',
+		marks: 'The LibreShard name and logo follow the',
+		policy: 'trademark policy',
+		others:
+			"Names of other programs (OBS Studio, Discord, Photoshop…) belong to their owners. LibreShard isn't affiliated with or endorsed by them.",
+		contact: 'Contact',
+	},
+	es: {
+		label: 'Aviso legal',
+		app: 'LibreShard es software libre bajo la',
+		shards: 'la plantilla de shards y los archivos comunes de los shards están bajo',
+		site: 'Los textos de esta web están bajo',
+		siteCode: 'y su código bajo la',
+		marks: 'El nombre y el logo de LibreShard siguen la',
+		policy: 'política de marca',
+		others:
+			'Los nombres de otros programas (OBS Studio, Discord, Photoshop…) pertenecen a sus dueños. LibreShard no está afiliado a ellos ni cuenta con su respaldo.',
+		contact: 'Contacto',
+	},
+};
+const t = text[Astro.locals.starlightRoute.locale === 'es' ? 'es' : 'en'];
+---
+
+<Default />
+
+<aside class="ls-legal" aria-label={t.label}>
+	{/* Each paragraph on one line: Astro drops the whitespace at line breaks between expressions */}
+	<p>{t.app} <a href={`${APP}/LICENSE`}>Apache License 2.0</a>; {t.shards} <a href={`${APP}/LICENSES/MIT-0.txt`}>MIT No Attribution</a>.</p>
+	<p>{t.site} <a href={`${SITE}/LICENSES/CC-BY-4.0.txt`}>CC BY 4.0</a> {t.siteCode} <a href={`${SITE}/LICENSE`}>Apache License 2.0</a>.</p>
+	<p>{t.marks} <a href={`${APP}/TRADEMARKS.md`}>{t.policy}</a>. {t.others}</p>
+	<p>{t.contact}: <a href="mailto:hello@libreshard.com">hello@libreshard.com</a></p>
+</aside>
+
+<style>
+	.ls-legal {
+		margin-top: 2.5rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--sl-color-gray-5);
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+	.ls-legal p {
+		margin: 0 0 0.5rem;
+	}
+	.ls-legal a {
+		color: var(--sl-color-gray-2);
+	}
+	.ls-legal a:hover {
+		color: var(--sl-color-accent);
+	}
+</style>

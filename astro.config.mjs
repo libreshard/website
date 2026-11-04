@@ -13,6 +13,12 @@ export default defineConfig({
 			head: [
 				{ tag: 'meta', attrs: { name: 'theme-color', content: '#0d1b2a' } },
 				{ tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' } },
+				// Link previews (Discord, Reddit, X…): public/og.png, made by scripts/og-image.mjs
+				{ tag: 'meta', attrs: { property: 'og:image', content: 'https://libreshard.com/og.png' } },
+				{ tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
+				{ tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
+				{ tag: 'meta', attrs: { property: 'og:image:alt', content: 'LibreShard, the open-source control deck, with the OBS Studio shard on a tablet' } },
+				{ tag: 'meta', attrs: { name: 'twitter:image', content: 'https://libreshard.com/og.png' } },
 			],
 			defaultLocale: 'root',
 			locales: {
@@ -25,6 +31,8 @@ export default defineConfig({
 			components: {
 				// Adds "Download" and "Docs" links next to the GitHub icon in the header
 				SocialIcons: './src/components/HeaderLinks.astro',
+				// Adds the licenses, the trademark policy and the non-affiliation notice to every page
+				Footer: './src/components/SiteFooter.astro',
 			},
 			sidebar: [
 				{

@@ -28,7 +28,5 @@ recuerda dónde la dejas.
 
 ## Crea tu propio shard
 
-Un shard es una carpeta con un `manifest.json` y un `index.html`. Parte de la
-[plantilla](https://github.com/libreshard/libreshard/tree/main/docs/shard-template) y lee la
-[guía para autores de shards](https://github.com/libreshard/libreshard/blob/main/docs/shards.md)
-(en inglés).
+Un shard es una carpeta con un `manifest.json` y un `index.html`: si sabes hacer una página web,
+sabes hacer uno. [Crea un shard](/es/docs/create-a-shard/) te explica cómo.

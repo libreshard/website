@@ -43,6 +43,14 @@ export default defineConfig({
 						{ slug: 'docs/quick-start' },
 					],
 				},
+				{
+					label: 'Shard authors',
+					translations: { es: 'Autores de shards' },
+					items: [
+						{ slug: 'docs/create-a-shard' },
+						{ slug: 'docs/shard-reference' },
+					],
+				},
 			],
 		}),
 	],

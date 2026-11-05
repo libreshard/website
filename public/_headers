@@ -13,3 +13,7 @@
 # Built assets have hashed names: cache them for a year
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+# The same site is also reachable at libreshard.pages.dev: keep search engines on libreshard.com
+https://libreshard.pages.dev/*
+  X-Robots-Tag: noindex

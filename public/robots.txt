@@ -1,0 +1,5 @@
+# Cloudflare adds its content signals above these lines when serving this file.
+User-agent: *
+Allow: /
+
+Sitemap: https://libreshard.com/sitemap-index.xml

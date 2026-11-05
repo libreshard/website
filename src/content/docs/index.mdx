@@ -4,6 +4,19 @@ description: The open-source touch control deck. Turn any tablet, phone or spare
 template: splash
 editUrl: false
 lastUpdated: false
+head:
+  # The page title in search results and tabs (Starlight would add " | LibreShard")
+  - tag: title
+    content: 'LibreShard: open-source touch control deck for your PC'
+  - tag: meta
+    attrs:
+      property: og:type
+      content: website
+  # Tells search engines what LibreShard is (schema.org)
+  - tag: script
+    attrs:
+      type: application/ld+json
+    content: '{"@context":"https://schema.org","@type":"SoftwareApplication","name":"LibreShard","applicationCategory":"UtilitiesApplication","operatingSystem":"Windows, Linux, macOS","description":"The open-source touch control deck. Turn any tablet, phone or spare screen into a control panel for your PC, with no hardware to buy and no cloud.","url":"https://libreshard.com/","downloadUrl":"https://libreshard.com/download/","image":"https://libreshard.com/og.png","license":"https://www.apache.org/licenses/LICENSE-2.0","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}'
 hero:
   title: Your hardware. Your rules.
   tagline: Turn any tablet, phone or spare screen into a touch control deck for your PC. Open source, nothing to buy, nothing in the cloud.

@@ -4,6 +4,19 @@ description: El panel de control táctil de código abierto. Convierte cualquier
 template: splash
 editUrl: false
 lastUpdated: false
+head:
+  # The page title in search results and tabs (Starlight would add " | LibreShard")
+  - tag: title
+    content: 'LibreShard: panel de control táctil de código abierto para tu PC'
+  - tag: meta
+    attrs:
+      property: og:type
+      content: website
+  # Tells search engines what LibreShard is (schema.org)
+  - tag: script
+    attrs:
+      type: application/ld+json
+    content: '{"@context":"https://schema.org","@type":"SoftwareApplication","name":"LibreShard","applicationCategory":"UtilitiesApplication","operatingSystem":"Windows, Linux, macOS","description":"El panel de control táctil de código abierto. Convierte cualquier tablet, móvil o pantalla libre en un panel de control para tu PC, sin comprar hardware y sin nube.","url":"https://libreshard.com/es/","inLanguage":"es","downloadUrl":"https://libreshard.com/es/download/","image":"https://libreshard.com/og-es.png","license":"https://www.apache.org/licenses/LICENSE-2.0","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}'
 hero:
   title: Tu hardware. Tus reglas.
   tagline: Convierte cualquier tablet, móvil o pantalla libre en un panel táctil para tu PC. Código abierto, nada que comprar, nada en la nube.

@@ -56,7 +56,7 @@ Están documentadas a propósito:
 - **El tráfico local no va cifrado.** La tablet habla con la PC por HTTP sin cifrar. Alguien que
   pueda espiar tu red podría capturar un código de vinculación o el token de un dispositivo. Usa
   LibreShard en redes de confianza y desvincula un dispositivo si sospechas algo. HTTPS con un
-  certificado local está en la hoja de ruta.
+  certificado local está en la [hoja de ruta](/es/roadmap/).
 - **"Solo en estas apps" evita errores, no ataques.** Impide que un toque accidental dispare atajos
   en el programa equivocado. Lo que te protege de un shard malicioso es la revisión de teclas al
   instalarlo.

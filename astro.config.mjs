@@ -56,6 +56,7 @@ export default defineConfig({
 					label: 'Project',
 					translations: { es: 'Proyecto' },
 					items: [
+						{ slug: 'roadmap' },
 						{ slug: 'security' },
 						{ slug: 'community' },
 					],

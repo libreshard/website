@@ -47,7 +47,7 @@ page has an "Edit page" link at the bottom.
 Read the [contributing guide](https://github.com/libreshard/libreshard/blob/main/CONTRIBUTING.md)
 for the setup, the conventions and how pull requests work.
 [CONTEXT.md](https://github.com/libreshard/libreshard/blob/main/CONTEXT.md) explains the
-architecture, the protocol and the security model. The [roadmap](https://github.com/libreshard/libreshard#roadmap)
+architecture, the protocol and the security model. The [roadmap](/roadmap/)
 lists what's coming, and help is welcome on any of it.
 
 ## The rules

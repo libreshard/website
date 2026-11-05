@@ -49,7 +49,7 @@ tiene abajo un enlace "Edita esta página".
 Lee la [guía para contribuir](https://github.com/libreshard/libreshard/blob/main/CONTRIBUTING.md)
 (en inglés) para la instalación, las convenciones y cómo funcionan los pull requests.
 [CONTEXT.md](https://github.com/libreshard/libreshard/blob/main/CONTEXT.md) explica la arquitectura,
-el protocolo y el modelo de seguridad. La [hoja de ruta](https://github.com/libreshard/libreshard/blob/main/README.es.md#hoja-de-ruta)
+el protocolo y el modelo de seguridad. La [hoja de ruta](/es/roadmap/)
 dice lo que viene, y se agradece ayuda con cualquier punto.
 
 ## Las reglas

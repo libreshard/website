@@ -24,7 +24,7 @@ GitHub's limit for anonymous requests; never commit a token.
 | Path | What it is |
 |---|---|
 | `src/content/docs/` | The pages, in Markdown or MDX. English at the root, Spanish in `es/` with the same file names. |
-| `src/components/` | `Downloads.astro` (download cards), `HeaderLinks.astro` (links in the header) and `SiteFooter.astro` (licenses and trademark notice at the bottom of every page). |
+| `src/components/` | `Downloads.astro` (download cards), `HeaderLinks.astro` (links in the header) `SiteFooter.astro` (licenses and trademark notice at the bottom of every page) and `Roadmap.astro` (the roadmap timeline; its data mirrors the app's README). |
 | `src/lib/release.ts` | Reads the latest release from GitHub. |
 | `src/styles/brand.css` | LibreShard's colors on Starlight's theme. |
 | `src/assets/` | Logo and screenshots (optimized at build time). |

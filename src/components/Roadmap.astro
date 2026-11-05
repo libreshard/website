@@ -1,0 +1,225 @@
+---
+// The roadmap as a vertical timeline in plain HTML and CSS: readable on a phone, searchable, and
+// with no Mermaid in the browser. The data mirrors the Mermaid timeline in the app's README.md and
+// README.es.md (as of 0.2.0): update all three together.
+interface Props {
+	lang: 'en' | 'es';
+}
+
+type Kind = 'released' | 'next' | 'planned' | 'tentative';
+interface Version {
+	v: string;
+	title: string;
+	detail?: string;
+}
+interface Section {
+	kind: Kind;
+	label: string;
+	versions: Version[];
+}
+
+const roadmap: Record<'en' | 'es', Section[]> = {
+	en: [
+		{
+			kind: 'released',
+			label: 'Released',
+			versions: [
+				{ v: '0.1', title: 'First public release' },
+				{ v: '0.2', title: 'Full-screen shards', detail: 'Touch panel on the PC itself' },
+			],
+		},
+		{
+			kind: 'next',
+			label: 'Next',
+			versions: [{ v: '0.3', title: 'Robustness and trust', detail: 'Diagnostics, clearer warnings and fixes' }],
+		},
+		{
+			kind: 'planned',
+			label: 'Planned',
+			versions: [
+				{ v: '0.4', title: 'Panels without code', detail: 'Visual editor and Stream Deck import' },
+				{ v: '0.5', title: 'Shard ecosystem', detail: 'Community gallery and more languages' },
+				{ v: '0.6', title: 'Tablet experience', detail: 'Smarter menu, auto-switching and HTTPS' },
+				{ v: '1.0', title: 'First stable version' },
+			],
+		},
+		{
+			kind: 'tentative',
+			label: 'Tentative',
+			versions: [
+				{ v: '1.1', title: 'More capable shards', detail: 'Actions, macros, live data and mouse' },
+				{ v: '1.2', title: 'Connectors', detail: 'OBS and other apps, with live state' },
+			],
+		},
+	],
+	es: [
+		{
+			kind: 'released',
+			label: 'Publicada',
+			versions: [
+				{ v: '0.1', title: 'Primera versión pública' },
+				{ v: '0.2', title: 'Shards a pantalla completa', detail: 'Panel táctil en la propia PC' },
+			],
+		},
+		{
+			kind: 'next',
+			label: 'Siguiente',
+			versions: [{ v: '0.3', title: 'Robustez y confianza', detail: 'Diagnóstico, avisos más claros y arreglos' }],
+		},
+		{
+			kind: 'planned',
+			label: 'Prevista',
+			versions: [
+				{ v: '0.4', title: 'Paneles sin programar', detail: 'Editor visual e importación de Stream Deck' },
+				{ v: '0.5', title: 'Ecosistema de shards', detail: 'Galería comunitaria y más idiomas' },
+				{ v: '0.6', title: 'Experiencia en la tablet', detail: 'Menú mejorado, cambio automático y HTTPS' },
+				{ v: '1.0', title: 'Primera versión estable' },
+			],
+		},
+		{
+			kind: 'tentative',
+			label: 'Tentativa',
+			versions: [
+				{ v: '1.1', title: 'Shards más potentes', detail: 'Acciones, macros, datos en vivo y ratón' },
+				{ v: '1.2', title: 'Conectores', detail: 'OBS y otras apps, con estado en vivo' },
+			],
+		},
+	],
+};
+
+const { lang } = Astro.props;
+---
+
+<div class="ls-road not-content">
+	{
+		roadmap[lang].map((section) => (
+			<section class={`ls-road-section is-${section.kind}`}>
+				<h2 class="ls-road-label">{section.label}</h2>
+				<ol>
+					{section.versions.map((item) => (
+						<li>
+							<span class="ls-road-v">{item.v}</span>
+							<div>
+								<p class="ls-road-title">{item.title}</p>
+								{item.detail && <p class="ls-road-detail">{item.detail}</p>}
+							</div>
+						</li>
+					))}
+				</ol>
+			</section>
+		))
+	}
+</div>
+
+<style>
+	.ls-road {
+		--rail: var(--sl-color-gray-5);
+		margin-block: 2rem;
+	}
+	.ls-road-section {
+		/* Each section sets its own color for the dots and version badges */
+		--tone: var(--sl-color-accent);
+		--tone-text: var(--sl-color-black);
+		position: relative;
+		padding-inline-start: 1.75rem;
+		padding-bottom: 1.5rem;
+		border-inline-start: 2px solid var(--rail);
+		margin-inline-start: 0.5rem;
+	}
+	.ls-road-section:last-child {
+		border-inline-start-style: dashed;
+		padding-bottom: 0.25rem;
+	}
+	.is-next {
+		--tone: var(--ls-gold);
+		--tone-text: var(--ls-navy);
+	}
+	.is-tentative {
+		--tone: var(--sl-color-gray-4);
+		--tone-text: var(--sl-color-black);
+	}
+	.ls-road-label {
+		margin: 0 0 0.75rem;
+		font-size: var(--sl-text-sm);
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--sl-color-gray-3);
+	}
+	.is-next .ls-road-label {
+		color: var(--sl-color-white);
+	}
+	.ls-road ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.75rem;
+	}
+	.ls-road li {
+		position: relative;
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.75rem;
+		background: var(--sl-color-gray-6);
+	}
+	/* The dot on the rail, level with the card */
+	.ls-road li::before {
+		content: '';
+		position: absolute;
+		inset-inline-start: calc(-1.75rem - 7px);
+		top: 1.2rem;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background: var(--tone);
+		box-shadow: 0 0 0 3px var(--sl-color-black);
+	}
+	.is-released li::before {
+		background: var(--sl-color-black);
+		border: 2px solid var(--tone);
+		box-sizing: border-box;
+	}
+	.is-next li {
+		border-color: var(--ls-gold);
+	}
+	.is-tentative li {
+		border-style: dashed;
+		background: transparent;
+	}
+	.ls-road-v {
+		flex: none;
+		min-width: 3rem;
+		padding: 0.15rem 0.5rem;
+		border-radius: 0.5rem;
+		background: var(--tone);
+		color: var(--tone-text);
+		font-family: var(--sl-font-mono);
+		font-weight: 700;
+		text-align: center;
+	}
+	.is-released .ls-road-v {
+		background: transparent;
+		color: var(--sl-color-accent);
+		border: 1px solid var(--sl-color-accent);
+	}
+	/* Outlined too: text on a gray fill doesn't reach AA contrast in the light theme */
+	.is-tentative .ls-road-v {
+		background: transparent;
+		color: var(--sl-color-gray-2);
+		border: 1px dashed var(--sl-color-gray-3);
+	}
+	.ls-road-title {
+		margin: 0;
+		font-weight: 600;
+		color: var(--sl-color-white);
+	}
+	.ls-road-detail {
+		margin: 0.15rem 0 0;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-2);
+	}
+</style>

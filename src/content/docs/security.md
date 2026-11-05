@@ -54,7 +54,7 @@ These are documented on purpose:
 - **Local traffic isn't encrypted.** The tablet talks to the PC over plain HTTP. Someone who can
   sniff your network could capture a pairing code or a device token. Use LibreShard on networks you
   trust, and unpair a device if you suspect anything. HTTPS with a local certificate is on the
-  roadmap.
+  [roadmap](/roadmap/).
 - **"Only in these apps" prevents mistakes, not attacks.** It stops an accidental tap from firing
   shortcuts into the wrong program. What protects you from a malicious shard is the key review when
   you install it.

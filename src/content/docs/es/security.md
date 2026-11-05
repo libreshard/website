@@ -82,4 +82,5 @@ usa cookies ni recoge datos personales.
 Las versiones para Windows todavía no llevan firma de código. Queremos firmarlas gratis a través de
 [SignPath Foundation](https://signpath.org/). Mientras tanto, comprueba las descargas con el archivo
 `SHA256SUMS.txt` que se publica con cada versión (las [preguntas frecuentes](/es/docs/faq/) explican
-cómo). Esta sección será la política de firma de código del proyecto cuando la firma esté en marcha.
+cómo). Cómo funcionará la firma, quién la aprueba y qué envía la app por la red:
+[política de firma de código](/es/code-signing/).

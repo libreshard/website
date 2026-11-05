@@ -60,6 +60,7 @@ export default defineConfig({
 					items: [
 						{ slug: 'roadmap' },
 						{ slug: 'security' },
+						{ slug: 'code-signing' },
 						{ slug: 'community' },
 					],
 				},

@@ -13,7 +13,8 @@ export default defineConfig({
 			head: [
 				{ tag: 'meta', attrs: { name: 'theme-color', content: '#0d1b2a' } },
 				{ tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' } },
-				// Link previews (Discord, Reddit, X…): public/og.png, made by scripts/og-image.mjs
+				// Link previews (Discord, LinkedIn, X…): public/og.png, made by scripts/og-image.mjs.
+				// Spanish pages swap in public/og-es.png (src/routeData.ts).
 				{ tag: 'meta', attrs: { property: 'og:image', content: 'https://libreshard.com/og.png' } },
 				{ tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
 				{ tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
@@ -28,6 +29,7 @@ export default defineConfig({
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/libreshard/libreshard' }],
 			editLink: { baseUrl: 'https://github.com/libreshard/website/edit/main/' },
 			customCss: ['./src/styles/brand.css'],
+			routeMiddleware: './src/routeData.ts',
 			components: {
 				// Adds "Download" and "Docs" links next to the GitHub icon in the header
 				SocialIcons: './src/components/HeaderLinks.astro',

@@ -28,7 +28,10 @@ GitHub's limit for anonymous requests; never commit a token.
 | `src/lib/release.ts` | Reads the latest release from GitHub. |
 | `src/styles/brand.css` | LibreShard's colors on Starlight's theme. |
 | `src/assets/` | Logo and screenshots (optimized at build time). |
-| `public/og.png` | The image link previews show. Regenerate it with `node scripts/og-image.mjs` when the logo or the screenshot changes. |
+| `public/og.png`, `public/og-es.png` | The images link previews show (the Spanish one on pages under `/es/`, set in `src/routeData.ts`). |
+| `social/` | Square versions of those images (1200×1200) to attach to social media posts. Not served by the site. |
+| `scripts/og-image.mjs` | Makes the four images above. Run `node scripts/og-image.mjs` when the logo, the screenshot or their texts change. It uses the Inter font in `scripts/fonts/` ([SIL Open Font License](scripts/fonts/OFL.txt)). |
+| `public/robots.txt` | Points search engines to the sitemap. Cloudflare adds its own lines above it. |
 | `public/.well-known/security.txt` | Where to report vulnerabilities ([RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)). Renew its `Expires` date before it passes (it's set a year ahead). |
 | `public/_headers` | Security headers (CSP, HSTS…) that Cloudflare Pages sends with every page. |
 

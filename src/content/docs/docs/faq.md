@@ -13,12 +13,20 @@ or another computer. Only the PC needs LibreShard installed.
 ### Does it need the internet or an account?
 
 No. LibreShard has no account, no cloud and no telemetry: the PC and the tablet talk over your own
-network. Shards can't reach the internet either.
+network. Shards can't reach the internet either. The only thing that uses the internet is the daily
+check for new versions, which sends nothing about you and can be turned off in Settings.
 
 ### Can I use several tablets at once?
 
 Yes. Pair each one with its own QR code or pairing code; they're listed in the **Devices** tab,
 where you can rename or unpair each one.
+
+### How do I move LibreShard to another PC?
+
+Settings → **Backup** → **Export backup…** saves your settings, app rules, shard order and settings,
+and the shards you installed in one file. On the new PC, **Import backup…** shows what would change
+first, and every shard goes through the usual key review again. Tablets aren't in the backup: pair
+them again.
 
 ### Is it free?
 
@@ -74,15 +82,14 @@ The tablet usually says why:
 
 If the tablet says nothing, the keys were pressed, but something on the PC took them:
 
-- A **game or app running as administrator** ignores keys from normal programs (see
-  [below](#keys-dont-reach-a-game)).
 - **Another program's global shortcut** uses the same combo and swallows it.
 - The shortcut isn't set in the app: check the app's own shortcut settings.
 
 ### Keys don't reach a game
 
 Windows doesn't let normal programs send keys to programs running as administrator, and many games
-and launchers run that way. Run LibreShard as administrator too.
+and launchers run that way. The tablet tells you when that happens ("… runs as administrator").
+Run LibreShard as administrator too.
 
 :::caution
 Running LibreShard as administrator gives the keys every shard presses the same power. Only do it if

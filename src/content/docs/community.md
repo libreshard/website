@@ -20,8 +20,11 @@ code are all welcome.
 
 ### Report a bug
 
-Open an [issue](https://github.com/libreshard/libreshard/issues) with your LibreShard version, your
-system (and desktop on Linux), what you did and what happened. Check the [FAQ](/docs/faq/) first: the
+In LibreShard, Settings → **Report a bug** opens the bug report form with your version and system
+filled in, and copies the diagnostics for you to paste (read them first: they have no device names,
+addresses or keys typed). You can also [open an issue](https://github.com/libreshard/libreshard/issues/new/choose)
+yourself with your LibreShard version, your system (and desktop on Linux), what you did and what
+happened. Check the [FAQ](/docs/faq/) first: the
 answer may be there.
 
 ### Share a shard

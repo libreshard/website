@@ -21,8 +21,11 @@ traducciones, documentación y código.
 
 ### Reporta un error
 
-Abre un [issue](https://github.com/libreshard/libreshard/issues) con tu versión de LibreShard, tu
-sistema (y el escritorio, en Linux), qué hiciste y qué pasó. Mira antes las
+En LibreShard, Ajustes → **Informar de un error** abre el formulario de GitHub con tu versión y tu
+sistema ya rellenos, y copia el diagnóstico para que lo pegues (revísalo antes: no incluye nombres de
+dispositivos, direcciones ni teclas pulsadas). También puedes
+[abrir un issue](https://github.com/libreshard/libreshard/issues/new/choose) tú con tu versión de
+LibreShard, tu sistema (y el escritorio, en Linux), qué hiciste y qué pasó. Mira antes las
 [preguntas frecuentes](/es/docs/faq/): puede que la respuesta esté ahí.
 
 ### Comparte un shard

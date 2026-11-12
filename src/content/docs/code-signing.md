@@ -54,9 +54,10 @@ Team members use multi-factor authentication for GitHub and SignPath.
 LibreShard will not transfer any information to other networked systems unless specifically
 requested by the user or the person installing or operating it.
 
-The app only talks to the devices you pair on your own network: there's no telemetry, no account
-and no cloud service. If a future feature contacts the internet (automatic updates, for example),
-this page will say what it contacts, and you'll be able to turn it off. The website's own privacy
+The app talks to the devices you pair on your own network: there's no telemetry, no account and no
+cloud service. Its only connection to the internet is the check for new versions (since 0.3): once a
+day it asks GitHub's API (`api.github.com`) which release is the latest, sending nothing about the
+user, and it never downloads or installs anything by itself. It can be turned off in Settings. The website's own privacy
 notes are on the [security page](/security/#privacy).
 
 ## Report a problem

@@ -76,6 +76,7 @@ doesn't use cookies or collect personal data.
 ## Code signing
 
 Windows releases aren't code-signed yet. We plan to sign them for free through
-[SignPath Foundation](https://signpath.org/). Until then, check downloads against the
-`SHA256SUMS.txt` file published with each release (the [FAQ](/docs/faq/) shows how). How signing
-will work, who approves it and what the app sends over the network: [Code signing policy](/code-signing/).
+[SignPath Foundation](https://signpath.org/) for 1.0, together with automatic updates. Until then,
+check downloads against the `SHA256SUMS.txt` file published with each release (the
+[FAQ](/docs/faq/) shows how). How signing will work, who approves it and what the app sends over
+the network: [Code signing policy](/code-signing/).

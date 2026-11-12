@@ -1,7 +1,7 @@
-// The newest published LibreShard release, read from GitHub when the site is built. Pre-releases
-// count (0.1.0 is one), drafts don't, and neither do releases without an installer: 0.2.0 was once
-// published empty while its installers sat in a separate draft, and the page offered nothing to
-// download. If GitHub can't be reached, the page links to the releases list instead of failing
+// The newest LibreShard release, read from GitHub when the site is built: the one GitHub marks
+// "Latest". Drafts and pre-releases don't count (a version is a pre-release while people try it,
+// then becomes a release), and neither do releases without an installer: 0.2.0 was once published
+// empty while its installers sat in a separate draft, and the page offered nothing to download. If GitHub can't be reached, the page links to the releases list instead of failing
 // the build.
 
 const REPO = 'libreshard/libreshard';
@@ -17,7 +17,6 @@ export interface Release {
 	version: string;
 	date: string;
 	url: string;
-	prerelease: boolean;
 	windows?: ReleaseAsset;
 	deb?: ReleaseAsset;
 	appImage?: ReleaseAsset;
@@ -41,7 +40,7 @@ async function fetchLatest(): Promise<Release | null> {
 		if (!res.ok) throw new Error(`GitHub answered ${res.status}`);
 		const list = (await res.json()) as any[];
 		const installer = /\.(exe|deb|AppImage|dmg)$/;
-		const r = list.find((x) => !x.draft && x.assets?.some((a: any) => installer.test(a.name)));
+		const r = list.find((x) => !x.draft && !x.prerelease && x.assets?.some((a: any) => installer.test(a.name)));
 		if (!r) return null;
 		const assets: ReleaseAsset[] = r.assets.map((a: any) => ({ name: a.name, url: a.browser_download_url, size: a.size }));
 		const find = (re: RegExp) => assets.find((a) => re.test(a.name));
@@ -49,7 +48,6 @@ async function fetchLatest(): Promise<Release | null> {
 			version: String(r.tag_name).replace(/^v/, ''),
 			date: r.published_at,
 			url: r.html_url,
-			prerelease: !!r.prerelease,
 			windows: find(/-Setup-.*\.exe$/),
 			deb: find(/_amd64\.deb$/),
 			appImage: find(/\.AppImage$/),

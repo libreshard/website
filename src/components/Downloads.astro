@@ -12,7 +12,6 @@ const { lang } = Astro.props;
 const text = {
 	en: {
 		version: 'Version',
-		prerelease: 'pre-release',
 		released: 'released on',
 		yours: 'Your system',
 		windows: 'Windows 10 and 11',
@@ -32,7 +31,6 @@ const text = {
 	},
 	es: {
 		version: 'Versión',
-		prerelease: 'versión preliminar',
 		released: 'publicada el',
 		yours: 'Tu sistema',
 		windows: 'Windows 10 y 11',
@@ -62,8 +60,7 @@ const date = release
 	release ? (
 		<div class="ls-downloads">
 			<p class="ls-version">
-				{text.version} <strong>{release.version}</strong>
-				{release.prerelease && <span class="ls-badge">{text.prerelease}</span>} · {text.released} {date} ·{' '}
+				{text.version} <strong>{release.version}</strong> · {text.released} {date} ·{' '}
 				<a href={release.url}>{text.notes}</a>
 			</p>
 			<div class="ls-cards">
@@ -143,14 +140,6 @@ const date = release
 <style>
 	.ls-version {
 		color: var(--sl-color-gray-2);
-	}
-	.ls-badge {
-		margin-inline-start: 0.4rem;
-		padding: 0.05rem 0.5rem;
-		border-radius: 999px;
-		font-size: var(--sl-text-xs);
-		background: var(--sl-color-accent-low);
-		color: var(--sl-color-accent-high);
 	}
 	.ls-cards {
 		display: grid;

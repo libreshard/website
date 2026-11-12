@@ -106,7 +106,7 @@ Run anyway**. To check that the file is the official one, compare its checksum w
 Get-FileHash .\LibreShard-Setup-0.2.0.exe
 ```
 
-We plan to sign the releases through [SignPath Foundation](https://signpath.org/).
+We plan to sign the releases through [SignPath Foundation](https://signpath.org/) for 1.0.
 
 ### Windows asks about the firewall: what should I allow?
 

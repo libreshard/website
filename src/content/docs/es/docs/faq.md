@@ -114,7 +114,7 @@ su suma de verificación con `SHA256SUMS.txt` de la misma versión, que aparece 
 Get-FileHash .\LibreShard-Setup-0.2.0.exe
 ```
 
-Queremos firmar las versiones a través de [SignPath Foundation](https://signpath.org/).
+Queremos firmar las versiones a través de [SignPath Foundation](https://signpath.org/) en la 1.0.
 
 ### Windows pregunta por el firewall: ¿qué debo permitir?
 

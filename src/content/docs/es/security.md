@@ -71,8 +71,18 @@ Están documentadas a propósito:
 
 ## Privacidad
 
-LibreShard no envía datos a ningún sitio. No hay telemetría, ni cuenta, ni servicio en la nube: la
-app solo habla con los dispositivos que vinculas en tu propia red.
+LibreShard no envía datos sobre ti a ningún sitio. No hay telemetría, ni cuenta, ni servicio en la
+nube: la app habla con los dispositivos que vinculas en tu propia red.
+
+Su única conexión fuera de tu red es la **búsqueda de versiones nuevas**: una vez al día, y cuando
+pulsas "Buscar ahora", pregunta a la API de GitHub cuál es la última versión de LibreShard. La
+petición no lleva nada sobre ti, tus dispositivos ni tus shards, y LibreShard nunca descarga ni
+instala nada por su cuenta: muestra un enlace a la página de descargas. Se desactiva en Ajustes →
+"Buscar versiones nuevas".
+
+Para ayudar con los reportes de errores, la app guarda un registro en tu PC. Nunca sale de la PC
+salvo que lo copies tú en un reporte, y no incluye teclas pulsadas, títulos de ventanas, nombres de
+dispositivos ni direcciones de red.
 
 Esta web no tiene cookies ni rastreadores. Cuenta las visitas con Cloudflare Web Analytics, que no
 usa cookies ni recoge datos personales.

@@ -67,8 +67,17 @@ These are documented on purpose:
 
 ## Privacy
 
-LibreShard sends no data anywhere. There's no telemetry, no account and no cloud service: the app
-only talks to the devices you pair on your own network.
+LibreShard sends no data about you anywhere. There's no telemetry, no account and no cloud service:
+the app talks to the devices you pair on your own network.
+
+Its only connection outside your network is the **check for new versions**: once a day, and when you
+press "Check now", it asks GitHub's API which LibreShard release is the latest. The request carries
+nothing about you, your devices or your shards, and LibreShard never downloads or installs anything
+by itself: it shows a link to the download page. Turn it off in Settings → "Check for new versions".
+
+To help with bug reports, the app keeps a log on your PC. It never leaves the PC unless you copy it
+into a report yourself, and it holds no keys typed, window titles, device names or network
+addresses.
 
 This website has no cookies or trackers. It counts visits with Cloudflare Web Analytics, which
 doesn't use cookies or collect personal data.

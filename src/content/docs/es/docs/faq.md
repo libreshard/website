@@ -15,12 +15,20 @@ un teléfono u otra computadora. Solo hace falta instalar LibreShard en la PC.
 ### ¿Necesita internet o una cuenta?
 
 No. LibreShard no tiene cuenta, ni nube, ni telemetría: la PC y la tablet hablan por tu propia red.
-Los shards tampoco pueden acceder a internet.
+Los shards tampoco pueden acceder a internet. Lo único que usa internet es la búsqueda diaria de
+versiones nuevas, que no envía nada sobre ti y se puede desactivar en Ajustes.
 
 ### ¿Puedo usar varias tablets a la vez?
 
 Sí. Vincula cada una con su propio QR o código; aparecen en la pestaña **Dispositivos**, donde puedes
 renombrarlas o desvincularlas una a una.
+
+### ¿Cómo llevo LibreShard a otra PC?
+
+Ajustes → **Copia de seguridad** → **Exportar copia…** guarda en un archivo tus ajustes, las reglas de
+apps, el orden y los ajustes de los shards y los shards que instalaste. En la PC nueva, **Importar
+copia…** te muestra primero qué va a cambiar, y cada shard vuelve a pasar por la revisión de teclas.
+Las tablets no van en la copia: vuelve a vincularlas.
 
 ### ¿Es gratis?
 
@@ -79,16 +87,14 @@ Normalmente la tablet dice por qué:
 
 Si la tablet no dice nada, las teclas se pulsaron, pero algo en la PC se las quedó:
 
-- Un **juego o una app que se ejecuta como administrador** ignora las teclas de los programas
-  normales (mira [más abajo](#las-teclas-no-llegan-a-un-juego)).
 - **El atajo global de otro programa** usa la misma combinación y se la queda.
 - El atajo no está configurado en la app: revisa los atajos de la propia app.
 
 ### Las teclas no llegan a un juego
 
 Windows no deja que los programas normales envíen teclas a programas que se ejecutan como
-administrador, y muchos juegos y lanzadores se ejecutan así. Ejecuta LibreShard también como
-administrador.
+administrador, y muchos juegos y lanzadores se ejecutan así. La tablet te avisa cuando pasa ("… se
+ejecuta como administrador"). Ejecuta LibreShard también como administrador.
 
 :::caution
 Ejecutar LibreShard como administrador da ese mismo poder a las teclas que pulse cualquier shard.

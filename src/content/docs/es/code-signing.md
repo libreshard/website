@@ -58,9 +58,11 @@ SignPath.
 LibreShard no transfiere ninguna información a otros sistemas de la red salvo que lo pida
 expresamente el usuario o la persona que lo instala o lo utiliza.
 
-La app solo habla con los dispositivos que vinculas en tu propia red: no hay telemetría, ni
-cuenta, ni servicio en la nube. Si una función futura se conecta a internet (las actualizaciones
-automáticas, por ejemplo), esta página dirá con qué se conecta y podrás desactivarla. Las notas de
+La app habla con los dispositivos que vinculas en tu propia red: no hay telemetría, ni cuenta, ni
+servicio en la nube. Su única conexión a internet es la búsqueda de versiones nuevas (desde la 0.3):
+una vez al día pregunta a la API de GitHub (`api.github.com`) cuál es la última versión, sin enviar
+nada sobre el usuario, y nunca descarga ni instala nada por su cuenta. Se puede desactivar en
+Ajustes. Las notas de
 privacidad de la web están en la [página de seguridad](/es/security/#privacidad).
 
 ## Reportar un problema

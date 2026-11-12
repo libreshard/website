@@ -1,7 +1,7 @@
 ---
 // The roadmap as a vertical timeline in plain HTML and CSS: readable on a phone, searchable, and
 // with no Mermaid in the browser. The data mirrors the Mermaid timeline in the app's README.md and
-// README.es.md (as of the 0.3 plan): update all three together.
+// README.es.md (as of 0.3.0): update all three together.
 interface Props {
 	lang: 'en' | 'es';
 }
@@ -26,18 +26,18 @@ const roadmap: Record<'en' | 'es', Section[]> = {
 			versions: [
 				{ v: '0.1', title: 'First public release' },
 				{ v: '0.2', title: 'Full-screen shards', detail: 'Touch panel on the PC itself' },
+				{ v: '0.3', title: 'Robustness and trust', detail: 'Diagnostics, clearer warnings and fixes' },
 			],
 		},
 		{
 			kind: 'next',
 			label: 'Next',
-			versions: [{ v: '0.3', title: 'Robustness and trust', detail: 'Diagnostics, clearer warnings and fixes' }],
+			versions: [{ v: '0.4', title: 'Panels without code', detail: 'Visual editor and Stream Deck import' }],
 		},
 		{
 			kind: 'planned',
 			label: 'Planned',
 			versions: [
-				{ v: '0.4', title: 'Panels without code', detail: 'Visual editor and Stream Deck import' },
 				{ v: '0.5', title: 'Shard ecosystem', detail: 'Community gallery and more languages' },
 				{ v: '0.6', title: 'Tablet experience', detail: 'Smarter menu, auto-switching and HTTPS' },
 				{ v: '1.0', title: 'First stable version', detail: 'Signed builds and automatic updates' },
@@ -59,18 +59,18 @@ const roadmap: Record<'en' | 'es', Section[]> = {
 			versions: [
 				{ v: '0.1', title: 'Primera versión pública' },
 				{ v: '0.2', title: 'Shards a pantalla completa', detail: 'Panel táctil en la propia PC' },
+				{ v: '0.3', title: 'Robustez y confianza', detail: 'Diagnóstico, avisos más claros y arreglos' },
 			],
 		},
 		{
 			kind: 'next',
 			label: 'Siguiente',
-			versions: [{ v: '0.3', title: 'Robustez y confianza', detail: 'Diagnóstico, avisos más claros y arreglos' }],
+			versions: [{ v: '0.4', title: 'Paneles sin programar', detail: 'Editor visual e importación de Stream Deck' }],
 		},
 		{
 			kind: 'planned',
 			label: 'Prevista',
 			versions: [
-				{ v: '0.4', title: 'Paneles sin programar', detail: 'Editor visual e importación de Stream Deck' },
 				{ v: '0.5', title: 'Ecosistema de shards', detail: 'Galería comunitaria y más idiomas' },
 				{ v: '0.6', title: 'Experiencia en la tablet', detail: 'Menú mejorado, cambio automático y HTTPS' },
 				{ v: '1.0', title: 'Primera versión estable', detail: 'Firma y actualizaciones automáticas' },

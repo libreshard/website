@@ -74,11 +74,20 @@ Están documentadas a propósito:
 LibreShard no envía datos sobre ti a ningún sitio. No hay telemetría, ni cuenta, ni servicio en la
 nube: la app habla con los dispositivos que vinculas en tu propia red.
 
-Su única conexión fuera de tu red es la **búsqueda de versiones nuevas**: una vez al día, y cuando
-pulsas "Buscar ahora", pregunta a la API de GitHub cuál es la última versión de LibreShard. La
-petición no lleva nada sobre ti, tus dispositivos ni tus shards, y LibreShard nunca descarga ni
-instala nada por su cuenta: muestra un enlace a la página de descargas. Se desactiva en Ajustes →
-"Buscar versiones nuevas".
+Solo se conecta fuera de tu red en estos casos, y nunca envía nada sobre ti, tus dispositivos ni tus
+shards (solo un User-Agent genérico `LibreShard`):
+
+- **La búsqueda de versiones nuevas:** una vez al día, y cuando pulsas "Buscar ahora", pregunta a la
+  API de GitHub cuál es la última versión de LibreShard y, si instalaste shards, lee la lista de la
+  galería en libreshard.com para avisarte cuando alguno tiene versión nueva. Nunca descarga ni
+  instala nada por su cuenta. Se desactiva en Ajustes → "Buscar versiones nuevas".
+- **La galería,** cuando la abres: lee la misma lista. Instalar un shard desde ella descarga el
+  archivo que publicó su autor, y LibreShard solo lo instala si es exactamente el archivo revisado,
+  después de mostrarte sus teclas.
+- **Instalar desde una dirección web** o un enlace `libreshard://`, cuando lo pides (un enlace
+  siempre pregunta antes): solo https, nunca un servidor de tu propia red, como mucho 50 MB.
+
+Los archivos y la lista de shards solo se sirven a los dispositivos que vinculaste.
 
 Para ayudar con los reportes de errores, la app guarda un registro en tu PC. Nunca sale de la PC
 salvo que lo copies tú en un reporte, y no incluye teclas pulsadas, títulos de ventanas, nombres de

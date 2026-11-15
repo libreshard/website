@@ -70,10 +70,20 @@ These are documented on purpose:
 LibreShard sends no data about you anywhere. There's no telemetry, no account and no cloud service:
 the app talks to the devices you pair on your own network.
 
-Its only connection outside your network is the **check for new versions**: once a day, and when you
-press "Check now", it asks GitHub's API which LibreShard release is the latest. The request carries
-nothing about you, your devices or your shards, and LibreShard never downloads or installs anything
-by itself: it shows a link to the download page. Turn it off in Settings → "Check for new versions".
+It connects outside your network only in these cases, and never sends anything about you, your
+devices or your shards (only a generic `LibreShard` User-Agent):
+
+- **The check for new versions:** once a day, and when you press "Check now", it asks GitHub's API
+  which LibreShard release is the latest and, if you installed shards, reads the gallery's list on
+  libreshard.com to tell you when one has a new version. It never downloads or installs anything by
+  itself. Turn it off in Settings → "Check for new versions".
+- **The gallery,** when you open it: it reads the same list. Installing a shard from it downloads the
+  file its author published, and LibreShard only installs it if it's exactly the file that was
+  reviewed, after showing you its keys.
+- **Installing from a web address** or a `libreshard://` link, when you ask (a link always asks
+  first): https only, never a server on your own network, at most 50 MB.
+
+The shards' files and list are only served to devices you paired.
 
 To help with bug reports, the app keeps a log on your PC. It never leaves the PC unless you copy it
 into a report yourself, and it holds no keys typed, window titles, device names or network

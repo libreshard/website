@@ -59,10 +59,11 @@ LibreShard no transfiere ninguna información a otros sistemas de la red salvo q
 expresamente el usuario o la persona que lo instala o lo utiliza.
 
 La app habla con los dispositivos que vinculas en tu propia red: no hay telemetría, ni cuenta, ni
-servicio en la nube. Su única conexión a internet es la búsqueda de versiones nuevas (desde la 0.3):
-una vez al día pregunta a la API de GitHub (`api.github.com`) cuál es la última versión, sin enviar
-nada sobre el usuario, y nunca descarga ni instala nada por su cuenta. Se puede desactivar en
-Ajustes. Las notas de
+servicio en la nube. Por su cuenta, solo se conecta a internet para la búsqueda de versiones nuevas:
+una vez al día pregunta a la API de GitHub (`api.github.com`) cuál es la última versión y, desde la
+0.5, lee la lista de la galería en libreshard.com si el usuario instaló shards, sin enviar nada sobre
+el usuario. Nunca descarga ni instala nada por su cuenta, y se puede desactivar en Ajustes. Los
+shards solo se descargan cuando el usuario lo pide (la galería, una dirección web o un enlace). Las notas de
 privacidad de la web están en la [página de seguridad](/es/security/#privacidad).
 
 ## Reportar un problema

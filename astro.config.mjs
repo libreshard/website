@@ -51,6 +51,7 @@ export default defineConfig({
 					translations: { es: 'Autores de shards' },
 					items: [
 						{ slug: 'docs/create-a-shard' },
+						{ slug: 'docs/ai-assistant' },
 						{ slug: 'docs/shard-reference' },
 					],
 				},

@@ -28,6 +28,20 @@ and the shards you installed in one file. On the new PC, **Import backup…** sh
 first, and every shard goes through the usual key review again. Tablets aren't in the backup: pair
 them again.
 
+### Can I make my own panel without programming?
+
+Yes. **New panel** in the Shards tab opens the panel editor: place buttons on a grid, pick the key
+each one presses (or holds, repeats or switches), add pages, icons, your own images and a theme,
+and save. The panel appears on the tablet right away. For something a grid can't do, an
+[AI assistant can write the shard](/docs/ai-assistant/) for you.
+
+### Can I use my Stream Deck profiles?
+
+Yes. Export the profile from the Stream Deck app and choose **Import Stream Deck profile…** in the
+Shards tab (or drop the `.streamDeckProfile` file on the window). Pages, folders, labels, images,
+hotkeys, hotkey switches and media keys come along; the editor marks the buttons it couldn't import
+(plugins, typing text, opening programs, multi actions) and says why. The profile stays on your PC.
+
 ### Is it free?
 
 Yes. LibreShard is free and open source under the

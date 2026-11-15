@@ -10,6 +10,10 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
 
+# The gallery's list, read by the app: short cache, so a newly listed shard shows up soon
+/gallery/index.json
+  Cache-Control: public, max-age=300
+
 # Built assets have hashed names: cache them for a year
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable

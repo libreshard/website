@@ -42,6 +42,7 @@ export default defineConfig({
 					translations: { es: 'Empieza aquí' },
 					items: [
 						{ slug: 'download' },
+						{ slug: 'gallery' },
 						{ slug: 'docs/quick-start' },
 						{ slug: 'docs/faq' },
 					],

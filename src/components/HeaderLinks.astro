@@ -3,8 +3,8 @@
 import Default from '@astrojs/starlight/components/SocialIcons.astro';
 
 const labels = {
-	en: { download: 'Download', docs: 'Docs' },
-	es: { download: 'Descargar', docs: 'Documentación' },
+	en: { download: 'Download', gallery: 'Gallery', docs: 'Docs' },
+	es: { download: 'Descargar', gallery: 'Galería', docs: 'Documentación' },
 };
 const locale = Astro.locals.starlightRoute.locale; // undefined for the root (English) locale
 const t = labels[locale === 'es' ? 'es' : 'en'];
@@ -13,6 +13,7 @@ const prefix = locale ? `/${locale}` : '';
 
 <nav class="ls-header-links sl-flex" aria-label="LibreShard">
 	<a href={`${prefix}/download/`}>{t.download}</a>
+	<a href={`${prefix}/gallery/`}>{t.gallery}</a>
 	<a href={`${prefix}/docs/quick-start/`}>{t.docs}</a>
 </nav>
 <Default />

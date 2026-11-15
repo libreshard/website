@@ -30,11 +30,11 @@ apps, el orden y los ajustes de los shards y los shards que instalaste. En la PC
 copia…** te muestra primero qué va a cambiar, y cada shard vuelve a pasar por la revisión de teclas.
 Las tablets no van en la copia: vuelve a vincularlas.
 
-### ¿Puedo crear mi propio panel sin programar?
+### ¿Puedo crear mi propio shard sin programar?
 
-Sí. **Nuevo panel**, en la pestaña Shards, abre el editor de paneles: coloca botones en una
+Sí. **Nuevo shard**, en la pestaña Shards, abre el editor de shards: coloca botones en una
 cuadrícula, elige la tecla que pulsa cada uno (o que mantiene, repite o alterna), añade páginas,
-iconos, tus propias imágenes y un tema, y guarda. El panel aparece en la tablet al momento. Para
+iconos, tus propias imágenes y un tema, y guarda. El shard aparece en la tablet al momento. Para
 algo que una cuadrícula no hace, [un asistente de IA puede escribir el shard](/es/docs/ai-assistant/)
 por ti.
 

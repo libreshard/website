@@ -12,11 +12,11 @@ asistente lo escriba, aunque nunca hayas programado.
 
 ## ¿Necesitas un asistente?
 
-Muchas veces no. **Nuevo panel**, en la pestaña Shards de la app, abre el editor de paneles: una
+Muchas veces no. **Nuevo shard**, en la pestaña Shards de la app, abre el editor de shards: una
 cuadrícula de botones con páginas, iconos, imágenes, colores y temas, donde cada botón pulsa,
 mantiene o repite una tecla, alterna entre dos teclas o abre otra página. Si es lo que buscas, usa
 el editor: es más rápido y no hay nada que revisar. **Importar perfil de Stream Deck…** convierte un
-perfil de Stream Deck que ya tengas en un panel así.
+perfil de Stream Deck que ya tengas en un shard así.
 
 Un asistente vale la pena cuando quieres algo que una cuadrícula no hace, por ejemplo:
 

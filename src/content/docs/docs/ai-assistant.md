@@ -3,7 +3,7 @@ title: Make a shard with an AI assistant
 description: Describe the panel you want and let an AI assistant write the shard, even if you've never written code. What to give it, a prompt to copy and what to check.
 ---
 
-<!-- Adapted from docs/ai-assistant.md in the LibreShard repository (0.4.0). Keep both in step. -->
+<!-- Adapted from docs/ai-assistant.md in the LibreShard repository (0.4.1). Keep both in step. -->
 
 A shard is a small web page (HTML, CSS and JavaScript) plus a `manifest.json` with the keys it may
 press. AI assistants such as ChatGPT, Claude, Gemini or Copilot are good at writing exactly that
@@ -12,11 +12,11 @@ have never written code.
 
 ## Do you need an assistant?
 
-Often you don't. **New panel** in the app's Shards tab opens the panel editor: a grid of buttons
+Often you don't. **New shard** in the app's Shards tab opens the shard editor: a grid of buttons
 with pages, icons, images, colors and themes, where each button presses, holds or repeats a key,
 switches between two keys or opens another page. If that's what you want, use the editor: it's
 quicker and there's nothing to check. **Import Stream Deck profile…** turns an existing Stream
-Deck profile into such a panel.
+Deck profile into such a shard.
 
 An assistant is worth it when you want something a grid can't do, for example:
 

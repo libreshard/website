@@ -30,6 +30,22 @@ apps, el orden y los ajustes de los shards y los shards que instalaste. En la PC
 copia…** te muestra primero qué va a cambiar, y cada shard vuelve a pasar por la revisión de teclas.
 Las tablets no van en la copia: vuelve a vincularlas.
 
+### ¿Puedo crear mi propio panel sin programar?
+
+Sí. **Nuevo panel**, en la pestaña Shards, abre el editor de paneles: coloca botones en una
+cuadrícula, elige la tecla que pulsa cada uno (o que mantiene, repite o alterna), añade páginas,
+iconos, tus propias imágenes y un tema, y guarda. El panel aparece en la tablet al momento. Para
+algo que una cuadrícula no hace, [un asistente de IA puede escribir el shard](/es/docs/ai-assistant/)
+por ti.
+
+### ¿Puedo usar mis perfiles de Stream Deck?
+
+Sí. Exporta el perfil desde la app de Stream Deck y elige **Importar perfil de Stream Deck…** en la
+pestaña Shards (o arrastra el archivo `.streamDeckProfile` a la ventana). Se traen las páginas,
+carpetas, títulos, imágenes, atajos, Hotkey Switch y teclas multimedia; el editor marca los botones
+que no pudo importar (plugins, escribir texto, abrir programas, multiacciones) y dice por qué. El
+perfil se queda en tu PC.
+
 ### ¿Es gratis?
 
 Sí. LibreShard es libre y de código abierto bajo la

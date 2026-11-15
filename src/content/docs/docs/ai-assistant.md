@@ -12,7 +12,7 @@ have never written code.
 
 ## Do you need an assistant?
 
-Often you don't. **New shard** in the app's Shards tab opens the shard editor: a grid of buttons
+Often you don't. **New shard** in the app's Shards tab opens the [shard editor](/docs/shard-editor/): a grid of buttons
 with pages, icons, images, colors and themes, where each button presses, holds or repeats a key,
 switches between two keys or opens another page. If that's what you want, use the editor: it's
 quicker and there's nothing to check. **Import Stream Deck profile…** turns an existing Stream

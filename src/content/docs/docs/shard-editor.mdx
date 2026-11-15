@@ -1,0 +1,149 @@
+---
+title: Make a shard with the editor
+description: Build your own shard without writing code. Place buttons on a grid, pick their keys, icons and look, and save it straight to the tablet. Stream Deck profiles can come along.
+---
+
+{/* Describes the shard editor of LibreShard 0.4.1. Keep it in step with the app. */}
+
+import { Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import editor from '../../../assets/editor.png';
+
+The shard editor makes your own shard without writing a line of code: a grid of buttons, with as
+many pages as you need, where each button presses a key, holds it, repeats it or switches between
+two. Saving installs it like any other shard, and the tablet shows it right away.
+
+<figure>
+	<Image src={editor} alt="The shard editor: pages on the left, the shard in the middle, the selected button's key and look on the right" />
+	<figcaption>Pages on the left, the shard as the tablet will show it in the middle, and the selected button's settings on the right.</figcaption>
+</figure>
+
+## Open it
+
+<Steps>
+
+1. In the LibreShard window on the PC, go to the **Shards** tab and click **New shard**.
+
+2. Give the shard a **name** and an **icon** (an emoji or a letter) for the tablet's menu, and pick
+   the size of the **grid**: up to 24 columns by 24 rows.
+
+3. Click an empty cell to add a button.
+
+</Steps>
+
+To change a shard later, click **Edit** on its card: shards made with the editor carry an
+**Editor** badge. That works for shards someone made on another PC too. The editor works on a copy:
+nothing changes until you click **Save**, and closing with unsaved changes asks first.
+
+## Pages
+
+The list on the left holds the pages: **Add page**, rename one by typing over its name, move it up or
+down, or delete it. Buttons can open any page, go back to the previous one, or step to the next or
+previous page. **Show page tabs on the tablet** puts a tab per page at the top of the shard; turn it
+off if your own buttons move between pages.
+
+## Buttons
+
+- **Click an empty cell** to add a button, **drag** a button to move it, and pull its **corner** to
+  make it span several cells.
+- **Duplicate** (Ctrl+D) copies the selected button, **Delete** (or the Delete key) removes it, and
+  the arrow keys move it one cell.
+- **Undo** and **Redo** (Ctrl+Z, Ctrl+Y) cover every change, and Ctrl+S saves.
+
+### What a button does
+
+| Choice | What happens on the tablet |
+|---|---|
+| **Press a key** | One tap presses the key or combination. |
+| **Hold a key** | The key stays down while your finger is on the button: Shift, Alt, push to talk. |
+| **Repeat while held** | Presses again and again while held, like a volume key. You choose how often (50 to 1000 ms). |
+| **Toggle between two keys** | Each tap alternates: the first key, then the second. Each state has its own text, icon and colors, so you can see which one is on. |
+| **Go to a page** | Shows another page of the shard, the previous one, or the next or previous page. |
+| **Text only** | A title or a note on the grid: it presses nothing. |
+
+### Keys
+
+- **Capture**: hold the keys on your keyboard, then let go of all of them. It follows your keyboard
+  layout, so a key is saved as the character it types.
+- **Choose…**: a list for keys that are awkward to capture: the Windows key, media keys (play,
+  volume, mute), F13 to F24, the numeric keypad.
+- A combination can hold several keys after the modifiers, pressed in order. Windows Alt codes work
+  that way: Alt + Num 1 + Num 6 + Num 4 types ñ. Capture them by holding Alt and typing the digits
+  on the numeric keypad, or build them with **+ add a key**.
+
+The keys panel on the right lists every key the shard uses, with the same warnings as the review
+when you install a shard: system shortcuts in red, and keys this PC's keyboard doesn't have (F13 to
+F24 on many Linux keyboards).
+
+### How a button looks
+
+- **Text**, placed at the top, middle or bottom, in three sizes.
+- An **icon**: one of LibreShard's icons, an emoji, or your own **image** (PNG, JPEG, WebP or a GIF's
+  first frame). Images are shrunk to 288 px and saved again as PNG, so only the pixels end up in the
+  shard. The text goes over them.
+- A **background image** that covers the whole button, under its icon and text.
+- The **button color** and the **text color**.
+
+## The Look tab
+
+**Look**, next to **Button** on the right, sets the style of the whole shard:
+
+- **Theme**: LibreShard, Light, High contrast, OLED black or Key pad (black, with images to the
+  edge of each button, like a hardware key pad). Choosing a theme clears your own settings below;
+  Undo brings them back.
+- **Background**: the theme's, a color, a gradient, or an image you can darken.
+- **Buttons**: corners, border, fill (gradient, flat or none), shadow, color, the color when
+  pressed, and whether images keep a margin or reach the edge.
+- **Page tabs**: colors for the other pages and for the selected one.
+- **Spacing** between buttons, and the **text**'s color, size and font.
+
+**Back to the theme** drops your own settings, and the editor warns when text and buttons are hard
+to tell apart.
+
+## Preview and warnings
+
+The middle of the editor draws the shard with the same code the tablet uses. **Preview** switches
+between a tablet in landscape, a tablet in portrait and a phone. The editor marks:
+
+- buttons that still need a key or a page ("!");
+- buttons smaller than 48 px at that size, hard to hit with a finger;
+- keys LibreShard can't press on this PC.
+
+## Save and share
+
+**Save** installs the shard. Its keys are approved straight away, since you chose them yourself,
+and tablets showing it reload. To share it, click **Export…** on its card: it saves a `.libreshard`
+file that opens in LibreShard with a double click, on any PC.
+
+## Bring a Stream Deck profile
+
+<Steps>
+
+1. In the Stream Deck app, export the profile (a `.streamDeckProfile` file).
+
+2. In LibreShard, click **Import Stream Deck profile…** in the Shards tab, or drop the file on the
+   window.
+
+3. The profile opens in the editor as a new shard, not saved yet. Check it, change what you like,
+   and click **Save**.
+
+</Steps>
+
+Pages, folders, button titles (with their place, size and color), images, hotkeys, hotkey switches,
+media keys and page buttons come along. A summary above the warnings says how many buttons work.
+
+- Buttons LibreShard can't run (plugin actions, typing text, opening programs or websites, multi
+  actions, key sequences, Stop) keep their title and image, are marked **✕**, and say why when you
+  select them. Give them an action, or delete them.
+- Buttons marked **?** deserve a look: shortcuts recorded on a Mac (Cmd becomes Ctrl), and Key Logic
+  buttons, of which only the single press is imported.
+- A virtual Stream Deck doesn't store its size, so the grid fits the buttons it uses. Make it bigger
+  in **Grid** if you want more room.
+
+The profile stays on your PC: LibreShard only reads the file you chose.
+
+## When a grid isn't enough
+
+For a layout of your own, buttons that change with a setting or remember things, write a shard as
+a web page ([Create a shard](/docs/create-a-shard/)), or let
+[an AI assistant write it](/docs/ai-assistant/) for you.

@@ -34,7 +34,7 @@ Las tablets no van en la copia: vuelve a vincularlas.
 
 Sí. **Nuevo shard**, en la pestaña Shards, abre el editor de shards: coloca botones en una
 cuadrícula, elige la tecla que pulsa cada uno (o que mantiene, repite o alterna), añade páginas,
-iconos, tus propias imágenes y un tema, y guarda. El shard aparece en la tablet al momento. Para
+iconos, tus propias imágenes y un tema, y guarda. El shard aparece en la tablet al momento ([cómo funciona el editor](/es/docs/shard-editor/)). Para
 algo que una cuadrícula no hace, [un asistente de IA puede escribir el shard](/es/docs/ai-assistant/)
 por ti.
 

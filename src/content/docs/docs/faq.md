@@ -32,7 +32,7 @@ them again.
 
 Yes. **New shard** in the Shards tab opens the shard editor: place buttons on a grid, pick the key
 each one presses (or holds, repeats or switches), add pages, icons, your own images and a theme,
-and save. The shard appears on the tablet right away. For something a grid can't do, an
+and save. The shard appears on the tablet right away ([how the editor works](/docs/shard-editor/)). For something a grid can't do, an
 [AI assistant can write the shard](/docs/ai-assistant/) for you.
 
 ### Can I use my Stream Deck profiles?

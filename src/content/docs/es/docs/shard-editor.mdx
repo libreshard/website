@@ -1,0 +1,152 @@
+---
+title: Crea un shard con el editor
+description: Crea tu propio shard sin programar. Coloca botones en una cuadrícula, elige sus teclas, iconos y aspecto, y guárdalo directo en la tablet. Tus perfiles de Stream Deck también sirven.
+---
+
+{/* Translation of docs/shard-editor.mdx. Keep both in step. */}
+
+import { Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import editor from '../../../../assets/editor.png';
+
+El editor de shards crea tu propio shard sin escribir una línea de código: una cuadrícula de
+botones, con todas las páginas que necesites, donde cada botón pulsa una tecla, la mantiene, la
+repite o alterna entre dos. Al guardar se instala como cualquier otro shard y la tablet lo muestra
+al momento.
+
+<figure>
+	<Image src={editor} alt="El editor de shards: las páginas a la izquierda, el shard en el centro, la tecla y el aspecto del botón elegido a la derecha" />
+	<figcaption>Las páginas a la izquierda, el shard tal como lo mostrará la tablet en el centro, y los ajustes del botón elegido a la derecha.</figcaption>
+</figure>
+
+## Ábrelo
+
+<Steps>
+
+1. En la ventana de LibreShard en la PC, ve a la pestaña **Shards** y haz clic en **Nuevo shard**.
+
+2. Ponle al shard un **nombre** y un **icono** (un emoji o una letra) para el menú de la tablet, y
+   elige el tamaño de la **cuadrícula**: hasta 24 columnas por 24 filas.
+
+3. Haz clic en una celda vacía para añadir un botón.
+
+</Steps>
+
+Para cambiar un shard después, haz clic en **Editar** en su tarjeta: los shards hechos con el editor
+llevan la etiqueta **Editor**. También sirve con shards que alguien hizo en otra PC. El editor
+trabaja sobre una copia: nada cambia hasta que haces clic en **Guardar**, y si cierras con cambios
+sin guardar te pregunta antes.
+
+## Páginas
+
+La lista de la izquierda tiene las páginas: **Añadir página**, renombra una escribiendo sobre su
+nombre, súbela o bájala, o bórrala. Los botones pueden abrir cualquier página, volver a la anterior
+o pasar a la página siguiente o a la previa. **Mostrar las pestañas de página en la tablet** pone
+una pestaña por página arriba del shard; desactívalo si tus propios botones ya cambian de página.
+
+## Botones
+
+- **Haz clic en una celda vacía** para añadir un botón, **arrastra** un botón para moverlo y tira de
+  su **esquina** para que ocupe varias celdas.
+- **Duplicar** (Ctrl+D) copia el botón elegido, **Borrar** (o la tecla Supr) lo quita, y las
+  flechas lo mueven una celda.
+- **Deshacer** y **Rehacer** (Ctrl+Z, Ctrl+Y) cubren todos los cambios, y Ctrl+S guarda.
+
+### Qué hace un botón
+
+| Opción | Qué pasa en la tablet |
+|---|---|
+| **Pulsar una tecla** | Un toque pulsa la tecla o la combinación. |
+| **Mantener una tecla** | La tecla queda pulsada mientras el dedo está en el botón: Shift, Alt, pulsar para hablar. |
+| **Repetir mientras se mantiene** | Pulsa una y otra vez mientras lo mantienes, como una tecla de volumen. Tú eliges cada cuánto (de 50 a 1000 ms). |
+| **Alternar entre dos teclas** | Cada toque alterna: la primera tecla y luego la segunda. Cada estado tiene su propio texto, icono y colores, así ves cuál está activo. |
+| **Ir a una página** | Muestra otra página del shard, la anterior, o la página siguiente o la previa. |
+| **Solo texto** | Un título o una nota en la cuadrícula: no pulsa nada. |
+
+### Teclas
+
+- **Capturar**: mantén las teclas en tu teclado y luego suéltalas todas. Sigue tu distribución de
+  teclado, así que la tecla se guarda como el carácter que escribe.
+- **Elegir…**: una lista para las teclas difíciles de capturar: la tecla Windows, las teclas
+  multimedia (reproducir, volumen, silencio), F13 a F24 y el teclado numérico.
+- Una combinación puede tener varias teclas después de los modificadores, pulsadas en orden. Así
+  funcionan los códigos Alt de Windows: Alt + Num 1 + Num 6 + Num 4 escribe ñ. Captúralos
+  manteniendo Alt y escribiendo los dígitos en el teclado numérico, o ármalos con **+ añadir tecla**.
+
+El panel de la derecha lista todas las teclas que usa el shard, con los mismos avisos que la
+revisión al instalar un shard: los atajos del sistema en rojo, y las teclas que el teclado de esta PC
+no tiene (F13 a F24 en muchos teclados de Linux).
+
+### Cómo se ve un botón
+
+- **Texto**, arriba, en el centro o abajo, en tres tamaños.
+- Un **icono**: uno de los iconos de LibreShard, un emoji o tu propia **imagen** (PNG, JPEG, WebP o
+  el primer fotograma de un GIF). Las imágenes se reducen a 288 px y se guardan de nuevo como PNG,
+  así que al shard solo llegan los píxeles. El texto va encima.
+- Una **imagen de fondo** que cubre todo el botón, debajo del icono y del texto.
+- El **color del botón** y el **color del texto**.
+
+## La pestaña Aspecto
+
+**Aspecto**, junto a **Botón** a la derecha, define el estilo de todo el shard:
+
+- **Tema**: LibreShard, Claro, Alto contraste, Negro OLED o Botonera (negro, con las imágenes hasta
+  el borde de cada botón, como una botonera física). Elegir un tema borra tus propios ajustes de
+  abajo; Deshacer los recupera.
+- **Fondo**: el del tema, un color, un degradado o una imagen que puedes oscurecer.
+- **Botones**: esquinas, borde, relleno (degradado, plano o ninguno), sombra, color, el color al
+  pulsar, y si las imágenes llevan margen o llegan al borde.
+- **Pestañas de página**: colores para las demás páginas y para la seleccionada.
+- **Espaciado** entre botones, y el color, el tamaño y la fuente del **texto**.
+
+**Volver al tema** descarta tus propios ajustes, y el editor avisa cuando el texto y los botones se
+distinguen mal.
+
+## Vista previa y avisos
+
+El centro del editor dibuja el shard con el mismo código que usa la tablet. **Vista previa** cambia
+entre una tablet en horizontal, una tablet en vertical y un móvil. El editor marca:
+
+- los botones a los que aún les falta una tecla o una página ("!");
+- los botones de menos de 48 px en ese tamaño, difíciles de tocar con el dedo;
+- las teclas que LibreShard no puede pulsar en esta PC.
+
+## Guarda y comparte
+
+**Guardar** instala el shard. Sus teclas quedan aprobadas al momento, porque las elegiste tú, y las
+tablets que lo tengan abierto lo recargan. Para compartirlo, haz clic en **Exportar…** en su
+tarjeta: guarda un archivo `.libreshard` que se abre en LibreShard con doble clic, en cualquier PC.
+
+## Trae un perfil de Stream Deck
+
+<Steps>
+
+1. En la app de Stream Deck, exporta el perfil (un archivo `.streamDeckProfile`).
+
+2. En LibreShard, haz clic en **Importar perfil de Stream Deck…** en la pestaña Shards, o arrastra
+   el archivo a la ventana.
+
+3. El perfil se abre en el editor como un shard nuevo, todavía sin guardar. Revísalo, cambia lo que
+   quieras y haz clic en **Guardar**.
+
+</Steps>
+
+Se traen las páginas, las carpetas, los títulos de los botones (con su posición, tamaño y color),
+las imágenes, los atajos, los Hotkey Switch, las teclas multimedia y los botones de página. Un
+resumen encima de los avisos dice cuántos botones funcionan.
+
+- Los botones que LibreShard no puede ejecutar (acciones de plugins, escribir texto, abrir programas
+  o webs, multiacciones, secuencias de teclas, Detener) conservan su título y su imagen, quedan
+  marcados con **✕** y dicen por qué cuando los eliges. Dales una acción o bórralos.
+- Los botones marcados con **?** merecen una mirada: atajos grabados en un Mac (Cmd pasa a ser Ctrl)
+  y botones Key Logic, de los que solo se importa la pulsación simple.
+- Un Stream Deck virtual no guarda su tamaño, así que la cuadrícula se ajusta a los botones que usa.
+  Agrándala en **Cuadrícula** si quieres más espacio.
+
+El perfil se queda en tu PC: LibreShard solo lee el archivo que elegiste.
+
+## Cuando una cuadrícula no basta
+
+Para una disposición propia, o botones que cambian con un ajuste o recuerdan cosas, escribe un shard
+como página web ([Crea un shard](/es/docs/create-a-shard/)), o deja que
+[un asistente de IA lo escriba](/es/docs/ai-assistant/) por ti.

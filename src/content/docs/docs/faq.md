@@ -28,11 +28,11 @@ and the shards you installed in one file. On the new PC, **Import backup…** sh
 first, and every shard goes through the usual key review again. Tablets aren't in the backup: pair
 them again.
 
-### Can I make my own panel without programming?
+### Can I make my own shard without programming?
 
-Yes. **New panel** in the Shards tab opens the panel editor: place buttons on a grid, pick the key
+Yes. **New shard** in the Shards tab opens the shard editor: place buttons on a grid, pick the key
 each one presses (or holds, repeats or switches), add pages, icons, your own images and a theme,
-and save. The panel appears on the tablet right away. For something a grid can't do, an
+and save. The shard appears on the tablet right away ([how the editor works](/docs/shard-editor/)). For something a grid can't do, an
 [AI assistant can write the shard](/docs/ai-assistant/) for you.
 
 ### Can I use my Stream Deck profiles?

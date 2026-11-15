@@ -1,0 +1,141 @@
+---
+// The gallery's shards, read from libreshard/shards when the site is built (src/lib/gallery.ts).
+// "Install in LibreShard" opens the app with a libreshard://install?gallery=<id> link: the app takes
+// the file and its sha256 from the index, asks first and shows the keys before installing.
+import { Icon } from '@astrojs/starlight/components';
+import { gallery, TAGS, REPO_URL } from '../lib/gallery';
+
+interface Props {
+	lang: 'en' | 'es';
+}
+const { lang } = Astro.props;
+
+const text = {
+	en: {
+		search: 'Search the gallery', all: 'All categories', none: 'No shard matches.', empty: 'No shards yet: be the first to publish one.',
+		by: 'by', keys: 'keys', anyApp: 'In any app', only: 'Only in', license: 'License', free: 'Free', paid: 'Paid',
+		install: 'Install in LibreShard', download: 'Download the file', buy: 'Buy', page: 'Page',
+		showKeys: 'The keys it can press', screenshot: 'Screenshot of',
+		tags: { games: 'Games', streaming: 'Streaming', creative: 'Creative', video: 'Video', audio: 'Audio', office: 'Office', development: 'Development', desktop: 'Desktop', accessibility: 'Accessibility', other: 'Other' },
+	},
+	es: {
+		search: 'Buscar en la galería', all: 'Todas las categorías', none: 'Ningún shard coincide.', empty: 'Aún no hay shards: publica el primero.',
+		by: 'de', keys: 'teclas', anyApp: 'En cualquier app', only: 'Solo en', license: 'Licencia', free: 'Gratis', paid: 'De pago',
+		install: 'Instalar en LibreShard', download: 'Descargar el archivo', buy: 'Comprar', page: 'Página',
+		showKeys: 'Las teclas que puede pulsar', screenshot: 'Captura de',
+		tags: { games: 'Juegos', streaming: 'Streaming', creative: 'Creatividad', video: 'Video', audio: 'Audio', office: 'Oficina', development: 'Desarrollo', desktop: 'Escritorio', accessibility: 'Accesibilidad', other: 'Otros' },
+	},
+}[lang];
+
+const { entries } = await gallery();
+const search = (e: (typeof entries)[number]) =>
+	[e.name, e.author, e.description, ...e.apps, ...e.tags.map((x) => text.tags[x as keyof typeof text.tags])].join(' ').toLowerCase();
+---
+
+<div class="ls-gallery">
+	{entries.length ? (
+		<div class="ls-gal-tools">
+			<input type="search" class="ls-gal-search" placeholder={text.search} aria-label={text.search} />
+			<select class="ls-gal-tag" aria-label={text.all}>
+				<option value="">{text.all}</option>
+				{TAGS.map((x) => <option value={x}>{text.tags[x]}</option>)}
+			</select>
+		</div>
+	) : <p>{text.empty} <a href={`${REPO_URL}#publish-your-shard`}>{REPO_URL.replace('https://', '')}</a></p>}
+
+	<div class="ls-gal-list">
+		{entries.map((e) => (
+			<article class="ls-gal-card" data-search={search(e)} data-tags={e.tags.join(' ')} id={e.id}>
+				{e.screenshot && <img class="ls-gal-shot" src={e.screenshot} alt={`${text.screenshot} ${e.name}`} loading="lazy" />}
+				<div class="ls-gal-body">
+					<header>
+						<span class="ls-gal-icon" aria-hidden="true">{e.icon || e.name[0]}</span>
+						<div>
+							<h3>{e.name}</h3>
+							<p class="ls-gal-meta">{text.by} {e.author} · v{e.version}</p>
+						</div>
+						<span class={'ls-gal-badge' + (e.paid ? ' paid' : '')}>{e.paid ? `${text.paid} · ${e.price}` : text.free}</span>
+					</header>
+					<p>{e.description}</p>
+					<p class="ls-gal-meta">
+						{e.apps.length ? `${text.only} ${e.apps.join(', ')}` : text.anyApp} · {e.keys.length} {text.keys} · {text.license}: {e.license}
+						{e.minAppVersion && <> · LibreShard {e.minAppVersion}+</>}
+					</p>
+					<p class="ls-gal-tags">{e.tags.map((x) => <span>{text.tags[x as keyof typeof text.tags]}</span>)}</p>
+					<details>
+						<summary>{text.showKeys}</summary>
+						<p class="ls-gal-keys">{e.keys.map((k) => <code>{k}</code>)}</p>
+					</details>
+					<div class="ls-gal-actions">
+						{e.paid ? (
+							<a class="ls-gal-btn primary" href={e.buyUrl} rel="noopener">{text.buy}</a>
+						) : (
+							<>
+								<a class="ls-gal-btn primary" href={`libreshard://install?gallery=${e.id}`}><Icon name="download" size="1rem" />{text.install}</a>
+								<a class="ls-gal-btn" href={e.download!.url} rel="noopener">{text.download}</a>
+							</>
+						)}
+						{e.url && <a class="ls-gal-btn" href={e.url} rel="noopener">{text.page}</a>}
+					</div>
+				</div>
+			</article>
+		))}
+	</div>
+	{entries.length > 0 && <p class="ls-gal-none" hidden>{text.none}</p>}
+</div>
+
+<script>
+	// Search and category filter, on the cards already in the page
+	for (const root of document.querySelectorAll<HTMLElement>('.ls-gallery')) {
+		const q = root.querySelector<HTMLInputElement>('.ls-gal-search');
+		const tag = root.querySelector<HTMLSelectElement>('.ls-gal-tag');
+		const none = root.querySelector<HTMLElement>('.ls-gal-none');
+		const cards = [...root.querySelectorAll<HTMLElement>('.ls-gal-card')];
+		const apply = () => {
+			const words = (q?.value || '').toLowerCase().trim().split(/\s+/).filter(Boolean);
+			let shown = 0;
+			for (const c of cards) {
+				const ok = (!tag?.value || (c.dataset.tags || '').split(' ').includes(tag.value)) && words.every((w) => (c.dataset.search || '').includes(w));
+				c.hidden = !ok;
+				if (ok) shown++;
+			}
+			if (none) none.hidden = shown > 0;
+		};
+		q?.addEventListener('input', apply);
+		tag?.addEventListener('change', apply);
+	}
+</script>
+
+<style>
+	.ls-gal-tools { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-block: 1rem; }
+	.ls-gal-search { flex: 1; min-width: 12rem; }
+	.ls-gal-search, .ls-gal-tag {
+		padding: 0.5rem 0.75rem; border-radius: 0.5rem; border: 1px solid var(--sl-color-gray-5);
+		background: var(--sl-color-black); color: var(--sl-color-white); font: inherit;
+	}
+	.ls-gal-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1rem; }
+	.ls-gal-card { border: 1px solid var(--sl-color-gray-5); border-radius: 0.75rem; overflow: hidden; background: var(--sl-color-gray-7, var(--sl-color-black)); display: flex; flex-direction: column; margin: 0; }
+	.ls-gal-card[hidden] { display: none; }
+	.ls-gal-shot { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin: 0; border-bottom: 1px solid var(--sl-color-gray-5); }
+	.ls-gal-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+	.ls-gal-body > * { margin: 0; }
+	.ls-gal-body header { display: flex; gap: 0.75rem; align-items: center; }
+	.ls-gal-body header > div { flex: 1; }
+	.ls-gal-body h3 { margin: 0; font-size: var(--sl-text-lg); }
+	.ls-gal-icon { width: 2.5rem; height: 2.5rem; border-radius: 0.6rem; display: grid; place-items: center; background: var(--sl-color-gray-6); font-size: 1.3rem; flex: none; }
+	.ls-gal-meta { font-size: var(--sl-text-sm); color: var(--sl-color-gray-3); margin: 0; }
+	.ls-gal-badge { font-size: var(--sl-text-xs); padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--sl-color-gray-6); white-space: nowrap; }
+	.ls-gal-badge.paid { background: var(--sl-color-accent-low); color: var(--sl-color-accent-high); }
+	.ls-gal-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+	.ls-gal-tags span { font-size: var(--sl-text-xs); border: 1px solid var(--sl-color-gray-5); border-radius: 999px; padding: 0.05rem 0.55rem; }
+	.ls-gal-keys { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.5rem 0 0; }
+	.ls-gal-keys code { font-size: var(--sl-text-xs); }
+	details summary { cursor: pointer; font-size: var(--sl-text-sm); color: var(--sl-color-gray-2); }
+	.ls-gal-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; padding-top: 0.5rem; }
+	.ls-gal-btn {
+		display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.8rem; border-radius: 0.5rem;
+		border: 1px solid var(--sl-color-gray-5); text-decoration: none; color: var(--sl-color-white); font-size: var(--sl-text-sm); font-weight: 600;
+	}
+	.ls-gal-btn:hover { border-color: var(--sl-color-accent); }
+	.ls-gal-btn.primary { background: var(--sl-color-accent); border-color: var(--sl-color-accent); color: var(--sl-color-black); }
+</style>

@@ -55,9 +55,11 @@ LibreShard will not transfer any information to other networked systems unless s
 requested by the user or the person installing or operating it.
 
 The app talks to the devices you pair on your own network: there's no telemetry, no account and no
-cloud service. Its only connection to the internet is the check for new versions (since 0.3): once a
-day it asks GitHub's API (`api.github.com`) which release is the latest, sending nothing about the
-user, and it never downloads or installs anything by itself. It can be turned off in Settings. The website's own privacy
+cloud service. On its own, it only connects to the internet for the check for new versions: once a
+day it asks GitHub's API (`api.github.com`) which release is the latest and, since 0.5, reads the
+gallery's list on libreshard.com if the user installed shards, sending nothing about the user. It
+never downloads or installs anything by itself, and it can be turned off in Settings. Downloads of
+shards happen only when the user asks (the gallery, a web address or a link). The website's own privacy
 notes are on the [security page](/security/#privacy).
 
 ## Report a problem

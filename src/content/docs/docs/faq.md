@@ -13,8 +13,16 @@ or another computer. Only the PC needs LibreShard installed.
 ### Does it need the internet or an account?
 
 No. LibreShard has no account, no cloud and no telemetry: the PC and the tablet talk over your own
-network. Shards can't reach the internet either. The only thing that uses the internet is the daily
-check for new versions, which sends nothing about you and can be turned off in Settings.
+network. Shards can't reach the internet either. On its own, LibreShard only goes online for the
+daily check for new versions (of the app, and of shards you installed from the gallery), which sends
+nothing about you and can be turned off in Settings. It also connects when you open the gallery or
+install a shard from a web address.
+
+### Where can I find more shards?
+
+In the [gallery](/gallery/): shards made by the community and reviewed before they're listed. Open
+it in the app (**Shards → Explore the gallery**, LibreShard 0.5 or newer) or on this site. Each one
+shows the keys it can press before you install it.
 
 ### Can I use several tablets at once?
 

@@ -3,7 +3,7 @@ title: Make a shard with the editor
 description: Build your own shard without writing code. Place buttons on a grid, pick their keys, icons and look, and save it straight to the tablet. Stream Deck profiles can come along.
 ---
 
-{/* Describes the shard editor of LibreShard 0.4.1. Keep it in step with the app. */}
+{/* Describes the shard editor of LibreShard 0.5.1. Keep it in step with the app. */}
 
 import { Steps } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
@@ -32,8 +32,14 @@ two. Saving installs it like any other shard, and the tablet shows it right away
 </Steps>
 
 To change a shard later, click **Edit** on its card: shards made with the editor carry an
-**Editor** badge. That works for shards someone made on another PC too. The editor works on a copy:
-nothing changes until you click **Save**, and closing with unsaved changes asks first.
+**Editor** badge. Your changes stay in the editor until you click **Save**, and closing with unsaved
+changes asks first.
+
+A shard made with the editor that you got from someone else (from the gallery, a web address or a
+file) says **Edit a copy** instead, and the editor tells you so as it opens. **Save as copy**
+creates a new shard of yours, with "(copy)" after its name, which keeps the original's author and
+license. The original stays as it is, with its settings, and keeps getting its updates. From then
+on the copy is yours, and **Save** changes it in place.
 
 ## Pages
 

@@ -136,7 +136,8 @@ cualquier sitio (teclas multimedia, un teclado numérico).
 - Los ajustes son datos, nunca código. Una declaración no válida hace que se rechace el shard.
 
 Un patrón habitual: un ajuste que elige el programa y un JavaScript que rellena `data-key` a partir
-de un mapa de teclas por programa (mira los shards incluidos Edición de imagen y Videollamadas).
+de un mapa de teclas por programa (mira el shard incluido Videollamadas, o
+[Image editing](https://github.com/libreshard/gallery-shards/tree/main/edicion-imagen) en el repositorio de la galería).
 
 ## Idiomas
 
